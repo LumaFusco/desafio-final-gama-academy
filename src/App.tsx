@@ -1,11 +1,15 @@
-import Header from "./components/Header";
+
+import {Title} from './components/Title/title';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <h1>Pagina Home</h1>
+    <div>
+     
+    <Title titleText="Better clothing for the planet" subTitle='Create screens directly in Method or add your images from Sketch or Figma. You can even sync designs from your cloud storage!'/>
     </div>
+
   );
 }
 
