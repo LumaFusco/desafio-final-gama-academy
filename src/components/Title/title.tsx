@@ -1,4 +1,4 @@
-
+import * as C from './title.styles'
 
 type Props = {
     titleText: string;
@@ -7,9 +7,9 @@ type Props = {
 
 export const Title = (props: Props) => {
     return(
-      <div>
-        <h1>{props.titleText}</h1>
-        <h4>{props.subTitle}</h4>
-      </div>
+    <C.Container>
+      <h1>{props.titleText}</h1>
+      <h4>{props.subTitle}</h4>
+    </C.Container>
     );
 }

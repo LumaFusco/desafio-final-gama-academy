@@ -1,5 +1,5 @@
 
-import {Title} from './components/Title/title';
+import {Title}  from './components/Title/title'
 
 
 
