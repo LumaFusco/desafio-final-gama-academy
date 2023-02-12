@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
 export const Container = styled.footer`
-    background-color: #009688;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     padding: 20px;
     text-align: center;
     justify-content: space-around;
-    font-family: 'public sans', Arial, Helvetica, sans-serif;
+    font-family: public sans, Arial, Helvetica, sans-serif;
+    border-top: 1px solid #ccc;
+   
     
     p {
         padding: 10px;
