@@ -1,12 +1,10 @@
-import Header from "./components/Header/index";
-import {Title} from './components/Title/title';
-import Footer from './components/footer/Footer'
+import Header from "./components/Header";
+
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Title titleText={"Aqui vamos inserir o título"} subTitle={'Aqui vamos inserir o subtitle (esse campo é opcional)'} />
-      <Footer />
+      <h1>Pagina Home</h1>
     </div>
 
   );
