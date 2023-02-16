@@ -33,3 +33,9 @@
   display: grid;
   color: lightgrey;
 }
+
+@media (max-width: 768px){
+  .carouselSection{
+    width: 85%;
+  }
+}

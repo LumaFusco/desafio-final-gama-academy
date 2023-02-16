@@ -11,12 +11,14 @@ export const Container = styled.footer`
     justify-content: space-around;
     height: 60px;
     border-top: 1px solid #ccc;
-   
+    align-items: center;
     
     p {
         padding: 10px;
-        color: #212121;
+        /* color: #212121; */
+        color: #00796B;
         font-weight: 400;
+        margin: auto;
     }
     span {
         padding: 10px;
@@ -30,5 +32,12 @@ export const Container = styled.footer`
             text-decoration: none;
             color: #212121;
             font-weight: 400;
+            margin: auto;
+        }
+
+        @media (max-width: 768px){
+            a {
+                font-size: 9px;
+            }
         }
 `;
