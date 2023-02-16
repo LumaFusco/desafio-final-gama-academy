@@ -1,20 +1,11 @@
-import Header from "./components/Header";
-import {Title} from './components/Title/title' ;
-import Footer from './components/footer/Footer';
-import Carousel from './components/FolderCarousel/Carousel'
-
-
+import Routes from './Routes'
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Title titleText="Este é o título" subTitle="Esse é o sub-título"/>
-      <Footer />
-      <Carousel />
+      <Routes />
     </div>
-
-  );
+  )
 }
 
-export default App;
+export default App
