@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import{Link as LinkRoute} from 'react-router-dom'
 import { Container } from 'react-bootstrap';
-import imageCart from '../images/icon-cart.svg';
-import logoTealBook from '../images/logo_teal_book.jpg';
+import imageCart from '../../assets/images/icon-cart.svg';
+import logoTealBook from '../../assets/images/logo_teal_book.jpg';
 import * as C from './header.styles';
 
 
@@ -12,7 +13,7 @@ function Header() {
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <div className="d-flex">
-                        <a href="#">
+                        <a href="/">
                             <img className="logo-teal-book" src={logoTealBook} alt="logo teal book" />
                         </a>
                     </div>
@@ -20,7 +21,7 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link darker" aria-current="page" href="#">Livros</a>
+                                <a className="nav-link darker" aria-current="page" href="livros">Livros</a>
                             </li>
                             <li className="nav-item darker">
                                 <a className="nav-link" href="#">Categorias</a>
@@ -38,13 +39,13 @@ function Header() {
                     <div>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link darker" aria-current="page" href="#">Login</a>
+                                <a className="nav-link darker" aria-current="page" href="login">Login</a>
                             </li>
                             <li className="nav-item darker">
                                 <a className="nav-link" href="#">Perfil</a>
                             </li>
                             <li className="nav-item darker">
-                                <a className="nav-link" href="#">Meus Pedidos</a>
+                                <a className="nav-link" href="carrinho">Meus Pedidos</a>
                             </li>
                             <img src={imageCart} alt="cart icon" className="p-3" />
                         </ul>
