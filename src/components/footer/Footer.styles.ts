@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 export const Container = styled.footer`
-    position: fixed;
-    bottom: 0;
+    margin-top: 50px;
     width: 100%;
     display: flex;
     align-items: center;
     padding: 20px;
     text-align: center;
     justify-content: space-around;
-    font-family: public sans, Arial, Helvetica, sans-serif;
+    height: 60px;
     border-top: 1px solid #ccc;
    
     

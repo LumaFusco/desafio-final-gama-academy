@@ -1,7 +1,7 @@
 .carouselSection {
   align-items: center;
   width: 50%;
-  margin: 0 auto;
+  margin: 60px auto;
   height: 400px;
   display: flex;
 }

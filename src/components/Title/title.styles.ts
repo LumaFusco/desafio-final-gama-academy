@@ -1,7 +1,6 @@
 import  styled  from "styled-components";
 
 export const Container = styled.div`
-    font-family: Public Sans, Arial, Helvetica, sans-serif;
     text-align: center;
 
     h1 {
