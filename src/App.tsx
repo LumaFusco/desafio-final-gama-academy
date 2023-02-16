@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import {Title} from './components/Title/title' ;
+import { Title } from './components/Title/title' ;
 import Footer from './components/footer/Footer';
 import Carousel from './components/FolderCarousel/Carousel';
 import './App.css';
