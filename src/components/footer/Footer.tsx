@@ -1,10 +1,10 @@
 import * as C from './Footer.styles';
-
+import{Link, Link as LinkRoute} from 'react-router-dom'
 function Footer () {
     return(
         <C.Container>
             <div>
-                <p>Teal Book </p>
+            <LinkRoute to='/'>Teal Book</LinkRoute>
             </div>
             <div>
                 <span>Projeto desenvolvido por: </span>
