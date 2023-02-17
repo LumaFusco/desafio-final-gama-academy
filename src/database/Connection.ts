@@ -7,7 +7,7 @@ export default class Connection {
       this.db_conection_string = db_connection_string;
     }
   
-    async createConection() {
+    async createConnection() {
       try {
         await connect(this.db_conection_string);
         console.log("Banco de dados conectado");

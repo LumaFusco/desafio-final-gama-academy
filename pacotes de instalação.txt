@@ -1,0 +1,16 @@
+1 import { connect } from "mongoose";
+                          ~~~~~~~~~~
+
+src/index.ts:1:21 - error TS2307: Cannot find module 'express' or its corresponding type declarations.
+
+1 import express from "express"
+                      ~~~~~~~~~
+
+src/index.ts:2:18 - error TS2307: Cannot find module 'cors' or its corresponding type declarations.   
+
+2 import cors from "cors"
+                   ~~~~~~
+
+src/index.ts:4:20 - error TS2307: Cannot find module 'dotenv' or its corresponding type declarations. 
+
+4 import dotenv from "dotenv"

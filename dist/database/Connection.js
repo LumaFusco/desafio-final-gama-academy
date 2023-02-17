@@ -14,7 +14,7 @@ class Connection {
     constructor(db_connection_string) {
         this.db_conection_string = db_connection_string;
     }
-    createConection() {
+    createConnection() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield (0, mongoose_1.connect)(this.db_conection_string);
