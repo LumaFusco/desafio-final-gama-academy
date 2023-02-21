@@ -1,23 +1,25 @@
 import { Schema, model } from "mongoose";
 
-interface Ucliente {
+interface cliente {
+    id: string,
     nome: string,
     email: string,
     senha: string,
-    tipo: string,
+    tipo: "cliente" | "admin",
 }
 
-const clienteSchema = new Schema<Ucliente>({
+const clienteSchema = new Schema<cliente>({
+    id: { type: String, required: true},
     nome: { type: String, required: true},
     email: { type: String, required: true},
     senha: { type: String, required: true},
-    tipo: { type: String, required: true, default: "CLIENTE" },
+    tipo: { type: String, required: true, default: 'cliente'},
 },
 {
     timestamps: true,
 }
 );
 
-const Cliente = model<Ucliente>("User", clienteSchema);
+const Cliente = model<cliente>("Cliente", clienteSchema);
 
 export default Cliente;
