@@ -4,6 +4,9 @@ import Login from './pages/Login'
 import Carrinho from './pages/Carrinho'
 import Livro from './pages/Livro'
 import Livros from './pages/Livros'
+import { CadastroLivro } from './pages/CadastroNovoLivro/CadastroLivro'
+
+
 
 export default function Routes() {
   return (
@@ -14,6 +17,7 @@ export default function Routes() {
         <Route path="/livros" element={<Livros />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<CadastroLivro />} />
       </WrapperRoutes>
     </BrowserRouter>
   )
