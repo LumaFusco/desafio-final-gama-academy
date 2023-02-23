@@ -14,6 +14,7 @@ export const Container = styled.div`
         margin: auto;
         letter-spacing: -2.4px;
         color: #00796B;
+        margin-top: 50px;
     }
 
     h4 {
