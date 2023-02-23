@@ -1,18 +1,61 @@
-import { event } from "jquery";
+
 import React, { useState } from "react";
 
 const Formulario = () => {
+    const [isFormSubmit, setIsformSubmit] = useState(false)
+    const [formErros, setFormErros] = useState({
+        nome: "",
+        imagem: "",
+        preco: 0,
+        descricao: "",
+        categoria: "",
+    })
+    function validacaoForm(){
+        let erros = {
+            nome: "",
+            imagem: "",
+            preco: 0,
+            descricao: "",
+            categoria: "",
+        };
+        
+        let isValid = true;
+
+        if(!formData.nome){
+            erros.nome = 'Insira o nome do Livro';
+            isValid = false
+        }
+
+    
+        setFormErros(erros);
+        return isValid;
+
+    
+    }
+
+ 
+    const [formValid, setFormValid] = useState(false);
+    function isFormValid (){
+        return Object.values(formData).every((value) => value!== '')
+    }
+
+    
   const [formData, setFormData] = useState({
-    name: "",
-    image: "",
-    price: 0,
-    description: "",
-    category: "",
+    nome: "",
+    imagem: "",
+    preco: 0,
+    descricao: "",
+    categoria: "",
   });
-  const [category, setCategory] = useState("");
+
+    
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    
     e.preventDefault();
     console.log(formData);
+
+    setIsformSubmit(true)
   };
 
   const handleChange = (
@@ -20,47 +63,49 @@ const Formulario = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormValid(isFormValid())
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Nome do Livro</label>
+        <label htmlFor="nome">Nome do Livro</label>
         <input
           type="text"
-          id="name"
-          name="name"
-          value={formData.name}
+          id="nome"
+          name="nome"
+          value={formData.nome}
           onChange={handleChange}
         />
+        {formErros.nome && <span className="error">{formErros.nome}</span>}
       </div>
       <div>
-        <label htmlFor="image">Insira o Link da imagem</label>
+        <label htmlFor="imagem">Insira o Link da imagem</label>
         <input
           type="url"
-          id="image"
-          name="image"
-          value={formData.image}
+          id="imagem"
+          name="imagem"
+          value={formData.imagem}
           onChange={handleChange}
         />
       </div>
       <div>
-        <label htmlFor="price">Informe o preço</label>
+        <label htmlFor="preco">Informe o preço</label>
         <input
           type="number"
-          id="price"
-          name="price"
-          value={formData.price}
+          id="preco"
+          name="preco"
+          value={formData.preco}
           onChange={handleChange}
         />
       </div>
       <div>
-        <label htmlFor="description">Descrição do Livro</label>
+        <label htmlFor="descricao">Descrição do Livro</label>
         <input
           type="text"
-          id="description"
-          name="description"
-          value={formData.description}
+          id="descricao"
+          name="descricao"
+          value={formData.descricao}
           onChange={handleChange}
         />
       </div>
@@ -70,9 +115,9 @@ const Formulario = () => {
           <label>
             <input
               type="radio"
-              name="category"
+              name="categoria"
               value="romance"
-              checked={formData.category === "romance"}
+              checked={formData.categoria === "romance"}
               onChange={handleChange}
             />
             Romance
@@ -80,9 +125,9 @@ const Formulario = () => {
           <label>
             <input
               type="radio"
-              name="category"
+              name="categoria"
               value="psicologia"
-              checked={formData.category === "psicologia"}
+              checked={formData.categoria === "psicologia"}
               onChange={handleChange}
             />
             Psicologia
@@ -90,9 +135,9 @@ const Formulario = () => {
           <label>
             <input
               type="radio"
-              name="category"
+              name="categoria"
               value="suspense"
-              checked={formData.category === "suspense"}
+              checked={formData.categoria === "suspense"}
               onChange={handleChange}
             />
             Suspense
@@ -100,16 +145,18 @@ const Formulario = () => {
           <label>
             <input
               type="radio"
-              name="category"
+              name="categoria"
               value="biografias"
-              checked={formData.category === "biografias"}
+              checked={formData.categoria === "biografias"}
               onChange={handleChange}
             />
             Biografias e Memórias
           </label>
         </div>
       </div>
-      <button type="submit">Enviar</button>
+      
+      <button type="submit" disabled={!formValid || isFormSubmit}>Enviar</button>
+     
     </form>
   );
 };
