@@ -1,4 +1,3 @@
-import { event } from "jquery";
 import React, { useState } from "react";
 
 const Formulario = () => {
@@ -111,6 +110,7 @@ const Formulario = () => {
       </div>
       <button type="submit">Enviar</button>
     </form>
+
   );
 };
 
