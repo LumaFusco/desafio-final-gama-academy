@@ -5,7 +5,7 @@ export const Container = styled.div`
 margin-top:20px;
 
 h1 {
-       font-weight: 600;
+    font-weight: 600;
     font-size: 30px;
     color: #009688;
     }

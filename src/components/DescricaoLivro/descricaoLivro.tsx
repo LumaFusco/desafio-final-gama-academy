@@ -2,10 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import * as C from './livro.style';
 
 type Props = {
-    bookTitle: string;
-    bookDescription: string;
-    bookAuthor: string;
-    bookPrice: string;
+    bookTitle?: string;
+    bookDescription?: string;
+    bookAuthor?: string;
+    bookPrice?: string;
   }
 
 export const Descricao = (props: Props) => {
