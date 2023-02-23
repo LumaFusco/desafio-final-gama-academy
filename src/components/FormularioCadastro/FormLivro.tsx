@@ -1,45 +1,20 @@
-
 import React, { useState } from "react";
 
 const Formulario = () => {
-    const [isFormSubmit, setIsformSubmit] = useState(false)
-    const [formErros, setFormErros] = useState({
-        nome: "",
-        imagem: "",
-        preco: 0,
-        descricao: "",
-        categoria: "",
-    })
-    function validacaoForm(){
-        let erros = {
-            nome: "",
-            imagem: "",
-            preco: 0,
-            descricao: "",
-            categoria: "",
-        };
-        
-        let isValid = true;
+  const [isFormSubmit, setIsformSubmit] = useState(false);
+  const [formErros, setFormErros] = useState({
+    nome: "",
+    imagem: "",
+    preco: 0,
+    descricao: "",
+    categoria: "",
+  });
 
-        if(!formData.nome){
-            erros.nome = 'Insira o nome do Livro';
-            isValid = false
-        }
+  const [formValid, setFormValid] = useState(false);
+  function isFormValid() {
+    return Object.values(formData).every((value) => value !== "");
+  }
 
-    
-        setFormErros(erros);
-        return isValid;
-
-    
-    }
-
- 
-    const [formValid, setFormValid] = useState(false);
-    function isFormValid (){
-        return Object.values(formData).every((value) => value!== '')
-    }
-
-    
   const [formData, setFormData] = useState({
     nome: "",
     imagem: "",
@@ -48,14 +23,11 @@ const Formulario = () => {
     categoria: "",
   });
 
-    
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    
     e.preventDefault();
     console.log(formData);
 
-    setIsformSubmit(true)
+    setIsformSubmit(true);
   };
 
   const handleChange = (
@@ -63,7 +35,7 @@ const Formulario = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    setFormValid(isFormValid())
+    setFormValid(isFormValid());
   };
 
   return (
@@ -154,9 +126,10 @@ const Formulario = () => {
           </label>
         </div>
       </div>
-      
-      <button type="submit" disabled={!formValid || isFormSubmit}>Enviar</button>
-     
+
+      <button type="submit" disabled={!formValid || isFormSubmit}>
+        Enviar
+      </button>
     </form>
   );
 };
