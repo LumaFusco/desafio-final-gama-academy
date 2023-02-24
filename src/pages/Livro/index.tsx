@@ -28,11 +28,11 @@ export default function Livro() {
             </Col>
             <Col>
               <Descricao bookTitle="A Morte É Um Dia Que Vale A Pena" bookDescription="Sobre a arte de ganhar existem muitas lições, mas e sobre a arte de perder? Ninguém quer falar a respeito disso, mas a verdade é que passamos muito tempo da vida em grande sofrimento quando perdemos bens, pessoas, realidades, sonhos. Saber perder é a arte de quem conseguiu viver plenamente o que ganhou um dia." bookAuthor="Arantes, Ana Claudia Quintana" bookPrice="R$69,90" />
-              <div className="d-grid gap-2">
-                <Button variant="secondary" size="lg">
+              <div className="d-grid gap-3">
+                <Button variant="secondary" size="sm" >
                   ADICIONAR AO CARRINHO
                 </Button>
-              </div>
+                      </div>
             </Col>
           </Row>
         </Container>

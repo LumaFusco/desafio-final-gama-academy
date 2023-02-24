@@ -3,8 +3,8 @@ import  styled, {css}  from "styled-components";
 export const Container = styled.div`
 
 margin-top:20px;
-padding-left:15px;
-padding-right:15px;
+padding-left:50px;
+padding-right:50px;
 
 .parte2{
     padding-top: 50px;
@@ -14,7 +14,21 @@ padding-right:15px;
     max-width: 90px;
 }
 
-.nomeLivro {
-    font-size: 10px;
+
+.botao-excluir{
+    font-size:15px;
+    }
+
+.total{
+    margin-top:30px;
+    font-weight:bold;
+}
+
+.resumo-pedido{
+padding: 50px;
+}
+
+p{
+    font-size: 12px;
 }
         `;

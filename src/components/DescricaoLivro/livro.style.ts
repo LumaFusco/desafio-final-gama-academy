@@ -5,15 +5,16 @@ export const Container = styled.div`
 margin-top:20px;
 
 h1 {
-    font-weight: 600;
-    font-size: 30px;
-    color: #009688;
+    font-weight: 400;
+        color: #009688;
+        font-size: 20px;
     }
 
 h3 {
     font-weight: 200;
     font-size: 16px;
     color: #757575;
+    margin-top:20px;
     } 
 
 h4 {
@@ -25,8 +26,9 @@ h4 {
 
 h5 {
     font-weight: 600;
-    font-size: 25px;
+    font-size: 17px;
     color: #212121;
+    margin-top:10px;
     } 
 
-    `;
+`;

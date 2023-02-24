@@ -10,7 +10,7 @@ type Props = {
 
 export const Descricao = (props: Props) => {
     return(
-   <div>
+   <div  className="mt-5">
     <C.Container>
       <h1>{props.bookTitle}</h1>
       <h5>{props.bookPrice}</h5>
