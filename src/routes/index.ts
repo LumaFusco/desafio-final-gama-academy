@@ -13,7 +13,9 @@ const routes = Router();
 
 routes.post("/login", validationLogin, authController.login)
 
+
 routes.post("/usuario", validationUsuario, usuarioController.create);
+routes.post("/usuario-admin", authValidation, validationUsuario, usuarioController.create);
 routes.get("/usuario", usuarioController.findAll);
 routes.get("/usuario/:id", usuarioController.findOne);
 routes.put("/usuario/:id", authValidation,validationUsuario, usuarioController.update);
