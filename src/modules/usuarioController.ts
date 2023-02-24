@@ -1,21 +1,21 @@
 import { Request, Response } from "express";
-import { Cliente } from "../models";
+import { Usuario } from "../models";
 import bcrypt from 'bcrypt';
+// import { usuario, } from "../models/Usuarios";
 
-const clienteController = {
+const usuarioController = {
     async create(req: Request, res: Response) {
-        const {id, nome, email, senha, tipo,} = req.body;
+        const {nome, email, senha, isAdmin} = req.body;
         const senhaCripto = bcrypt.hashSync(senha, 10);
         try{
-            const newCliente = await Cliente.create({
-                id,
+            const newUsuario = await Usuario.create({
                 nome,
                 email,
                 senha: senhaCripto,
-                tipo,
+                isAdmin,
             })
-    
-            return res.status(201).json(newCliente);
+
+            return res.status(201).json(newUsuario);
         } catch(error) {
             return res.status(400).json("Não foi possível realizar o cadastro");
         }
@@ -23,9 +23,9 @@ const clienteController = {
 
     async findAll(req: Request, res: Response) {
         try {
-            const clientes = await Cliente.find();
+            const usuarios = await Usuario.find();
 
-            return res.json(clientes);
+            return res.json(usuarios);
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -34,11 +34,9 @@ const clienteController = {
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
         try {
-            const cliente = await Cliente.findOne({
-                _id: id,
-            })
+            const usuario = await Usuario.findById(id)
     
-            return res.json(cliente)
+            return res.json(usuario)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -49,13 +47,13 @@ const clienteController = {
         const { nome, email, senha } = req.body;
         const senhaCripto = bcrypt.hashSync(senha, 10);
 
-        const checkCliente = await Cliente.findById(id);
-        if (!checkCliente) {
+        const checkUsuario = await Usuario.findById(id);
+        if (!checkUsuario) {
             return res.status(404).json("Id não encontrado");
         }
 
         try {
-            const updated = await Cliente.updateOne({
+            const updated = await Usuario.updateOne({
                 id: id,
             },
             {
@@ -66,7 +64,7 @@ const clienteController = {
             },
             });
     
-            return res.sendStatus(204);
+            return res.sendStatus(204).json("Informações atualizadas");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -75,13 +73,13 @@ const clienteController = {
     async delete(req: Request, res: Response) {
         const { id } = req.params;
         try {
-            await Cliente.findByIdAndDelete({});
+            await Usuario.findByIdAndDelete({});
 
-            return res.sendStatus(204);
+            return res.sendStatus(204).json("Deletado");
         } catch (error) {
             return res.status(500).json("Não foi possível realizar a ação");
         }
     },
 }
 
-export default clienteController;
+export default usuarioController;

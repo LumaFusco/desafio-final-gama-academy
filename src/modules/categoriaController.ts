@@ -3,17 +3,17 @@ import { Categoria } from "../models";
 
 const categoriaController = {
     async create(req: Request, res: Response) {
-        const {id, nome} = req.body;
-
-        const checkCategoria = await Categoria.count(nome);
-        if (checkCategoria) {
-            return res.status(500).json("categoria já cadastrada");
-        }
+        const {nome} = req.body;
         try {
             const newCategoria = await Categoria.create({
-                id,
                 nome,
             })
+
+            const checkCategoria = await Categoria.count(nome);
+
+            if (checkCategoria) {
+                return res.status(500).json("categoria já cadastrada");
+            }
     
             return res.status(201).json(newCategoria);
         } catch(error) {
@@ -36,9 +36,7 @@ const categoriaController = {
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
         try{
-            const categoria = await Categoria.findOne({
-                id: id,
-            })
+            const categoria = await Categoria.findById(id);
     
             return res.json(categoria)
         } catch (error) {
@@ -65,7 +63,7 @@ const categoriaController = {
             },
             });
     
-            return res.sendStatus(204);
+            return res.sendStatus(204).json("Informações atualizadas");
         } catch (error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -81,7 +79,7 @@ const categoriaController = {
         try{
             await Categoria.findByIdAndDelete({});
 
-            return res.sendStatus(204);
+            return res.sendStatus(204).json("Deletado");
         } catch (error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }

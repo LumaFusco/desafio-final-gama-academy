@@ -3,9 +3,7 @@ import { validate } from 'express-validation'
 
 const validationCategoria = validate({
     body: Joi.object({
-        id: Joi.string().required(),
-        categoria: Joi.string().required()
-
+        nome: Joi.string().required()
     })
 });
 

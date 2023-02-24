@@ -1,20 +1,29 @@
 import { Request, Response } from "express";
-import { Produto } from "../models";
+import { Livro } from "../models";
+// import Usuario, { usuario, nivel } from "../models/Usuarios";
 
-const produtoController = {
+const livroController = {
     async create(req: Request, res: Response) {
-        const {id, nome, foto, preco, descricao, categoria} = req.body;
+        const {nome, foto, preco, descricao, categoria, autor} = req.body;
         try {
-            const newProduto = await Produto.create({
-                id,
+            const newLivro = await Livro.create({
                 nome,
                 foto,
                 preco,
                 descricao,
                 categoria,
+                autor
             })
-    
-            return res.status(201).json(newProduto);
+            
+            // colocar código para só admin poder fazer cadastro
+            // const admin = req.params.id;
+            // const checknivel = await Usuario.findOne(id);
+
+            // if (admin !== nivel.ADMIN ) {
+            //     return res.status(403).json("Somente administradores podem realizar essa ação")
+            // }
+            
+            return res.status(201).json(newLivro);
         } catch(error) {
             return res.status(400).json("Não foi possível realizar o cadastro");
         }
@@ -23,9 +32,9 @@ const produtoController = {
 
     async findAll(req: Request, res: Response) {
         try {
-            const produtos = await Produto.find();
+            const livros = await Livro.find();
 
-            return res.json(produtos);
+            return res.json(livros);
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -34,11 +43,9 @@ const produtoController = {
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
         try {
-            const produto = await Produto.findOne({
-                _id: id,
-            })
+            const livro = await Livro.findById(id)
     
-            return res.json(produto)
+            return res.json(livro)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -46,9 +53,9 @@ const produtoController = {
 
     async update(req: Request, res: Response) {
         const { id } = req.params;
-        const { nome, foto, preco, descricao, categoria } = req.body;
+        const { nome, foto, preco, descricao, categoria, autor } = req.body;
         try {
-            const updated = await Produto.updateOne({
+            const updated = await Livro.updateOne({
                 _id: id,
             },
             {
@@ -57,11 +64,11 @@ const produtoController = {
                 foto, 
                 preco, 
                 descricao, 
-                categoria
+                categoria,
+                autor
             },
             });
-    
-            return res.sendStatus(204);
+            return res.sendStatus(204).json("Informações atualizadas");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -71,13 +78,13 @@ const produtoController = {
         try {
             const { id } = req.params;
 
-            await Produto.findByIdAndDelete({});
-    
-            return res.sendStatus(204);
+            await Livro.findByIdAndDelete({});
+
+            return res.sendStatus(204).json("Deletado");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
     },
 }
 
-export default produtoController;
+export default livroController;

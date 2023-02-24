@@ -1,13 +1,11 @@
 import { Schema, model } from "mongoose";
 
-interface categoria {
-    id: string
-    categoria: string
-}
+export interface categoria {
+    nome: string
+};
 
 const categoriaSchema = new Schema<categoria>({
-    id: { type: String, required: true, },
-    categoria: { type: String, required: true, },
+    nome: { type: String, required: true, },
 },
 {
     timestamps: true,

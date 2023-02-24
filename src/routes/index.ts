@@ -1,38 +1,35 @@
 import { Router } from "express";
 import authController from "../modules/authController";
 import categoriaController from "../modules/categoriaController";
-import clienteController from "../modules/clienteController";
-import produtoController from "../modules/podutoController";
+import usuarioController from "../modules/usuarioController";
+import livroController from "../modules/livroController";
 import validationCategoria from "../validations/categorias/createCategorias";
-import validationCliente from "../validations/clientes/createCliente";
-import validationProduto from "../validations/produtos/createProduto";
+import validationUsuario from "../validations/usuario/createUsuario";
+import validationLivro from "../validations/livros/createLivro";
 import validationLogin from "../validations/auth/login";
-import updateCategoria from "../validations/categorias/updateCategoria";
-import updateCliente from "../validations/clientes/updateCliente";
-import updateProduto from "../validations/produtos/updateProduto";
 import authValidation from "../middlewares/auth";
 
 const routes = Router();
 
 routes.post("/login", validationLogin, authController.login)
 
-routes.post("/cliente", validationCliente, clienteController.create);
-routes.get("/cliente", validationCliente, clienteController.findAll);
-routes.get("/cliente/:id", updateCliente, clienteController.findOne);
-routes.put("/cliente/:id", updateCliente, validationCliente, clienteController.update);
-routes.delete("/cliente/:id", authValidation, updateCliente, clienteController.delete);
+routes.post("/usuario", validationUsuario, usuarioController.create);
+routes.get("/usuario", usuarioController.findAll);
+routes.get("/usuario/:id", usuarioController.findOne);
+routes.put("/usuario/:id", authValidation,validationUsuario, usuarioController.update);
+routes.delete("/usuario/:id", authValidation, usuarioController.delete);
 
 routes.post("/categoria", authValidation, validationCategoria, categoriaController.create);
-routes.get("/categoria", validationCategoria, categoriaController.findAll);
-routes.get("/categoria/:id", updateCategoria, categoriaController.findOne);
-routes.put("/categoria/:id", authValidation, updateCategoria ,validationCategoria, categoriaController.update);
-routes.delete("/categoria/:id", authValidation, updateCategoria, categoriaController.delete);
+routes.get("/categoria", categoriaController.findAll);
+routes.get("/categoria/:id", categoriaController.findOne);
+routes.put("/categoria/:id", authValidation, validationCategoria, categoriaController.update);
+routes.delete("/categoria/:id", authValidation, categoriaController.delete);
 
-routes.post("/produto", authValidation, validationProduto, produtoController.create);
-routes.get("/produto", validationProduto, produtoController.findAll);
-routes.get("/produto/:id", updateProduto, produtoController.findOne);
-routes.put("/produto/:id", authValidation, updateProduto, validationProduto, produtoController.update);
-routes.delete("/produto/:id", authValidation, updateProduto, produtoController.delete);
+routes.post("/livro", authValidation, validationLivro, livroController.create);
+routes.get("/livro", livroController.findAll);
+routes.get("/livro/:id", livroController.findOne);
+routes.put("/livro/:id", authValidation, validationLivro, livroController.update);
+routes.delete("/livro/:id", authValidation, livroController.delete);
 
 
 export default routes;

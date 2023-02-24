@@ -2,14 +2,14 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { secret }from '../config';
-import { Cliente } from '../models';
+import { Usuario } from '../models';
 
 
 const authController = {
     async login(req: Request, res: Response ) {
         const {email, senha} = req.body;
 
-        const usuario = await Cliente.findOne({ email });
+        const usuario = await Usuario.findOne({ email });
         if (!usuario) {
             return res.status(400).json('Email não cadastrado');
         }
@@ -24,15 +24,11 @@ const authController = {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email,
-                tipo: usuario.tipo
+                isAdmin: usuario.isAdmin
             }, 
                 secret.key,{
             });
-    
-            if (usuario.tipo == 'admin') {
-                return res.json({ token });
-            }
-                return res.json("Logado");
+            return res.json(token);
         } catch(error) {
             return res.status(500).json("Não foi possível realizar a ação");
         }

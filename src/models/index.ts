@@ -1,7 +1,7 @@
-import Cliente from "./Clientes";
-import Produto from "./Produtos";
+import Usuario from "./Usuarios";
+import Livro from "./Livros";
 import Categoria from "./Categorias";
 
 
 
-export { Cliente, Produto, Categoria };
+export { Usuario, Livro, Categoria };

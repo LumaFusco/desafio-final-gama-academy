@@ -20,7 +20,7 @@ const authController = {
     login(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, senha } = req.body;
-            const usuario = yield models_1.Cliente.findOne({ email });
+            const usuario = yield models_1.Usuario.findOne({ email });
             if (!usuario) {
                 return res.status(400).json('Email não cadastrado');
             }
@@ -33,12 +33,9 @@ const authController = {
                     id: usuario.id,
                     nome: usuario.nome,
                     email: usuario.email,
-                    tipo: usuario.tipo
+                    isAdmin: usuario.isAdmin
                 }, config_1.secret.key, {});
-                if (usuario.tipo == 'admin') {
-                    return res.json({ token });
-                }
-                return res.json("Logado");
+                return res.json(token);
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
