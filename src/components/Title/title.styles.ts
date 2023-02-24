@@ -1,15 +1,18 @@
 import  styled, {css}  from "styled-components";
 
+type h1Props = {
+    small?: boolean;
+}
 
 
 
-export const Container = styled.div`
+export const Container = styled.div<h1Props>`
     text-align: center;
 
     h1 {
         padding: 20px;
         font-weight: 600;
-        font-size: 56px;
+        font-size: ${props => props.small ? '30px' : '56px'};
         width: 755px;
         margin: auto;
         letter-spacing: -2.4px;

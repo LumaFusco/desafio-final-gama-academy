@@ -6,22 +6,31 @@ const Formulario = () => {
 
   const [formValid, setFormValid] = useState(false);
   function isFormValid() {
-    return Object.values(formData).every((value) => value !== "" && formData.preco !== 0);
+    return Object.values(formData).every(
+      (value) => value !== "" && parseFloat(formData.preco) > 0
+    );
   }
 
   const [formData, setFormData] = useState({
     nome: "",
     imagem: "",
-    preco: 0,
+    preco: "",
+    descricao: "",
+    categoria: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    nome: "",
+    imagem: "",
+    preco: "",
     descricao: "",
     categoria: "",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
-
     setIsformSubmit(true);
+    console.log(formData);
   };
 
   const handleChange = (
@@ -29,13 +38,26 @@ const Formulario = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+
+    if (name === "preco") {
+      if (value === "" || (parseFloat(value) <= 0 && "")) {
+        setFormErrors((prevFormErrors) => ({
+          ...prevFormErrors,
+          preco: "O preço deve ser maior que zero.",
+        }));
+      } else {
+        setFormErrors((prevFormErrors) => ({ ...prevFormErrors, preco: "" }));
+      }
+    }
+
     const isValid = isFormValid();
     setFormValid(isValid);
   };
 
   return (
     <C.Container>
-      <form onSubmit={handleSubmit}>
+      <C.Form>
+      <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
         <div className="areaForm">
           <input
             type="text"
@@ -79,7 +101,7 @@ const Formulario = () => {
         <div className="areaFormRadio">
           <span>Escolha uma categoria:</span>
           <div>
-            <label>
+            <label className="radio">
               <input
                 type="radio"
                 name="categoria"
@@ -87,9 +109,9 @@ const Formulario = () => {
                 checked={formData.categoria === "romance"}
                 onChange={handleChange}
               />
-              Romance
+              <p>Romance</p>
             </label>
-            <label>
+            <label className="radio">
               <input
                 type="radio"
                 name="categoria"
@@ -97,9 +119,9 @@ const Formulario = () => {
                 checked={formData.categoria === "psicologia"}
                 onChange={handleChange}
               />
-              Psicologia
+              <p>Psicologia</p>
             </label>
-            <label>
+            <label className="radio">
               <input
                 type="radio"
                 name="categoria"
@@ -107,9 +129,9 @@ const Formulario = () => {
                 checked={formData.categoria === "suspense"}
                 onChange={handleChange}
               />
-              Suspense
+              <p>Suspense</p>
             </label>
-            <label>
+            <label className="radio">
               <input
                 type="radio"
                 name="categoria"
@@ -117,7 +139,7 @@ const Formulario = () => {
                 checked={formData.categoria === "biografias"}
                 onChange={handleChange}
               />
-              Biografias e Memórias
+              <p>Biografias e Memórias</p>
             </label>
           </div>
         </div>
@@ -125,6 +147,7 @@ const Formulario = () => {
           Enviar
         </button>
       </form>
+      </C.Form>
     </C.Container>
   );
 };

@@ -1,43 +1,44 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    text-align: start;
-    form {
-    min-width: 100%;
-    min-height: 69vh;
-    padding: 50px;
-    }
-    .areaForm{
-        padding: 20px;
-        margin: 10px;
+   max-width: 1320px;
+   height: 100%;
+   margin: 50px auto;
+`;
+
+export const Form = styled.div`
+    form{
     }
     input{
-        margin-left: 90px;
-        background-color: #f1f1f1;
+        margin-bottom: 20px;
         border: none;
+        background-color: #F1F1F1;
         border-bottom: 1px solid #CCC;
-        margin-right: 20px;
+    }
+    label{
+        margin-left: 40px;
+        margin-top: 10px;
     }
 
-    .areaFormRadio span{
-        margin-left: 120px;
-        font-weight: 600;
+    .areaFormRadio{
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
     }
 
-    .areaFormRadio label{
-        margin-top: 40px;
-        padding: 40px;
-        
-        text-align: start;
-    }
+    .radio{
+        margin-left: 0;
+        display: flex;
 
- 
+        p{
+            margin-left: 15px;
+        }
+    }
 
     button{
-        margin-top: 50px;
         border: 1px solid #CCC;
         border-radius: 4px;
-        margin-left: 200px;
+        margin-top: 10px;
     }
+
 `;
