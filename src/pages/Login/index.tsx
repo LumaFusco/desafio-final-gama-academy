@@ -37,8 +37,8 @@ export default function Login() {
             </div>
 
             <a href="#">Esqueci a senha</a>
-            <button className='button'>
-              Entrar <img src="" alt="" />
+            <button className="button">
+              Entrar 
             </button>
 
             <div className="footerForm">
@@ -48,7 +48,6 @@ export default function Login() {
           </form>
         </div>
       </C.Container>
-      <h1>Essa é a página do Login</h1>
       <Footer />
     </div>
   )
