@@ -5,7 +5,7 @@ export interface categoria {
 };
 
 const categoriaSchema = new Schema<categoria>({
-    nome: { type: String, required: true, },
+    nome: { type: String, required: true, unique: true },
 },
 {
     timestamps: true,

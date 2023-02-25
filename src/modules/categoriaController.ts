@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { Categoria } from "../models";
 
 const categoriaController = {
@@ -9,14 +9,9 @@ const categoriaController = {
                 nome,
             })
 
-            const checkCategoria = await Categoria.count(nome);
+                return res.status(201).json(newCategoria);
 
-            if (checkCategoria) {
-                return res.status(500).json("categoria já cadastrada");
-            }
-    
-            return res.status(201).json(newCategoria);
-        } catch(error) {
+            } catch(error) {
             return res.status(400).json("Não foi possível realizar o cadastro");
         }
         

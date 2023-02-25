@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import { ValidationError } from 'express-validation';
-import jwt from 'jsonwebtoken';
 import { UnauthorizedError } from 'express-jwt';
 
 interface ErrorResponse {
@@ -22,8 +21,7 @@ function handleError(
       res.status(error.status).json({
         message: 'Não autorizado',
       });
-    } 
-  } catch (error) {  
+    }} catch (err) {  
         res.status(500).json({
           message: 'Erro do Servidor Interno',
         });

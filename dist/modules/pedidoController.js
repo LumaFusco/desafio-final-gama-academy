@@ -8,28 +8,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const models_1 = require("../models");
-const categoriaController = {
+const Pedidos_1 = __importDefault(require("../models/Pedidos"));
+const pedidoController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { nome } = req.body;
+            const { usuario, produto, valorTotal } = req.body;
             try {
-                const newCategoria = yield models_1.Categoria.create({
-                    nome,
+                const newPedido = yield Pedidos_1.default.create({
+                    usuario,
+                    produto,
+                    valorTotal
                 });
-                return res.status(201).json(newCategoria);
+                return res.status(201).json(newPedido);
             }
             catch (error) {
-                return res.status(400).json("Não foi possível realizar o cadastro");
+                return res.status(400).json("Ocorreu um erro");
             }
         });
     },
     findAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const categorias = yield models_1.Categoria.find();
-                return res.json(categorias);
+                const pedidos = yield Pedidos_1.default.find();
+                return res.json(pedidos);
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -40,8 +45,8 @@ const categoriaController = {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                const categoria = yield models_1.Categoria.findById(id);
-                return res.json(categoria);
+                const pedido = yield Pedidos_1.default.findById(id);
+                return res.json(pedido);
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -51,20 +56,18 @@ const categoriaController = {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const { nome } = req.body;
-            const checkCategoria = yield models_1.Categoria.findById(id);
-            if (!checkCategoria) {
-                return res.status(500).json("Não foi possível realizar a ação");
-            }
+            const { usuario, produto, valorTotal } = req.body;
             try {
-                const updated = yield models_1.Categoria.updateOne({
-                    id: nome,
+                const updated = yield Pedidos_1.default.updateOne({
+                    _id: id,
                 }, {
                     $set: {
-                        nome
+                        usuario,
+                        produto,
+                        valorTotal
                     },
                 });
-                return res.sendStatus(204).json("Informações atualizadas");
+                return res.status(204).json("Pedido atualizado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -73,14 +76,10 @@ const categoriaController = {
     },
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const checkCategoria = yield models_1.Categoria.findById(id);
-            if (!checkCategoria) {
-                return res.status(404).json("Id não encontrado");
-            }
             try {
-                yield models_1.Categoria.findByIdAndDelete({});
-                return res.sendStatus(204).json("Deletado");
+                const { id } = req.params;
+                yield Pedidos_1.default.findByIdAndDelete(id);
+                return res.status(204).json("Pedido deletado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -88,4 +87,4 @@ const categoriaController = {
         });
     },
 };
-exports.default = categoriaController;
+exports.default = pedidoController;

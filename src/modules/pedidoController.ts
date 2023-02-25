@@ -1,31 +1,28 @@
 import { Request, Response } from "express";
-import { Livro } from "../models";
+import Pedido from "../models/Pedidos";
 
-const livroController = {
+const pedidoController = {
     async create(req: Request, res: Response) {
-        const {nome, foto, preco, descricao, categoria, autor} = req.body;
+        const {usuario, produto, valorTotal} = req.body;
         try {
-            const newLivro = await Livro.create({
-                nome,
-                foto,
-                preco,
-                descricao,
-                categoria,
-                autor
+            const newPedido = await Pedido.create({
+                usuario,
+                produto,
+                valorTotal
             })
-        
-            return res.status(201).json(newLivro);
+            
+            return res.status(201).json(newPedido);
         } catch(error) {
-            return res.status(400).json("Não foi possível realizar o cadastro");
+            return res.status(400).json("Ocorreu um erro");
         }
 
     },
 
     async findAll(req: Request, res: Response) {
         try {
-            const livros = await Livro.find();
+            const pedidos = await Pedido.find();
 
-            return res.json(livros);
+            return res.json(pedidos);
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -34,9 +31,9 @@ const livroController = {
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
         try {
-            const livro = await Livro.findById(id)
+            const pedido = await Pedido.findById(id)
     
-            return res.json(livro)
+            return res.json(pedido)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -44,22 +41,19 @@ const livroController = {
 
     async update(req: Request, res: Response) {
         const { id } = req.params;
-        const { nome, foto, preco, descricao, categoria, autor } = req.body;
+        const { usuario, produto, valorTotal} = req.body;
         try {
-            const updated = await Livro.updateOne({
+            const updated = await Pedido.updateOne({
                 _id: id,
             },
             {
             $set: {
-                nome, 
-                foto, 
-                preco, 
-                descricao, 
-                categoria,
-                autor
+                usuario,
+                produto,
+                valorTotal
             },
             });
-            return res.sendStatus(204).json("Informações atualizadas");
+            return res.status(204).json("Pedido atualizado");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -69,13 +63,13 @@ const livroController = {
         try {
             const { id } = req.params;
 
-            await Livro.findByIdAndDelete({});
+            await Pedido.findByIdAndDelete(id);
 
-            return res.sendStatus(204).json("Deletado");
+            return res.status(204).json("Pedido deletado");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
     },
 }
 
-export default livroController;
+export default pedidoController;

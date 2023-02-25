@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { Usuario } from "../models";
 import bcrypt from 'bcrypt';
-// import { usuario, } from "../models/Usuarios";
 
 const usuarioController = {
     async create(req: Request, res: Response) {

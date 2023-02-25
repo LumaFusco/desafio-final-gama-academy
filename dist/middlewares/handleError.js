@@ -15,7 +15,7 @@ function handleError(error, req, res, next) {
             });
         }
     }
-    catch (error) {
+    catch (err) {
         res.status(500).json({
             message: 'Erro do Servidor Interno',
         });
