@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
    max-width: 1320px;
-   height: 100%;
+   min-height: 100%;
    margin: 50px auto;
 `;
 
 export const Form = styled.div`
     form{
+        min-height: 100%;
     }
     input{
         margin-bottom: 20px;

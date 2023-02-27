@@ -7,18 +7,12 @@ import Carousel from '../../components/FolderCarousel/Carousel'
 
 function Home() {
   return (
-    <div className="App">
-      <header>
+    <body>
       <Header/>
-      </header><main>
       <Title titleText="Este é o título2" subTitle="Esse é o sub-título"/>
-    
-      <Carousel />
-      </main>
-     <footer>
+      <Carousel />   
       <Footer />
-      </footer>
-    </div>
+    </body>
 
   );
 }
