@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.footer`
-    margin-top: 50px;
-    bottom: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -12,10 +10,12 @@ export const Container = styled.footer`
     height: 60px;
     border-top: 1px solid #ccc;
     align-items: center;
-    
+  
+    bottom: 0;
+    margin-top: 150px;
+ 
     p {
         padding: 10px;
-        /* color: #212121; */
         color: #00796B;
         font-weight: 400;
         margin: auto;
@@ -33,6 +33,11 @@ export const Container = styled.footer`
             color: #212121;
             font-weight: 400;
             margin: auto;
+        }
+        .logo{
+            font-size: 20px;
+            color: #00796B;
+            font-weight: 600;
         }
 
         @media (max-width: 768px){
