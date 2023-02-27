@@ -21,7 +21,7 @@ function handleError(
       res.status(error.status).json({
         message: 'Não autorizado',
       });
-    }} catch (err) {  
+    }} catch (error) {  
         res.status(500).json({
           message: 'Erro do Servidor Interno',
         });

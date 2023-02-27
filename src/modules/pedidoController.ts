@@ -10,18 +10,15 @@ const pedidoController = {
                 produto,
                 valorTotal
             })
-            
             return res.status(201).json(newPedido);
         } catch(error) {
             return res.status(400).json("Ocorreu um erro");
         }
-
     },
 
     async findAll(req: Request, res: Response) {
         try {
             const pedidos = await Pedido.find();
-
             return res.json(pedidos);
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
@@ -32,7 +29,6 @@ const pedidoController = {
         const { id } = req.params;
         try {
             const pedido = await Pedido.findById(id)
-    
             return res.json(pedido)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
@@ -42,6 +38,10 @@ const pedidoController = {
     async update(req: Request, res: Response) {
         const { id } = req.params;
         const { usuario, produto, valorTotal} = req.body;
+        const checkPedido = await Pedido.findById(id);
+        if (!checkPedido) {
+            return  res.status(500).json("Id não encontrado");
+        }
         try {
             const updated = await Pedido.updateOne({
                 _id: id,
@@ -53,19 +53,21 @@ const pedidoController = {
                 valorTotal
             },
             });
-            return res.status(204).json("Pedido atualizado");
+            return res.status(200).json("Pedido atualizado");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
     },
 
     async delete(req: Request, res: Response) {
+        const { id } = req.params;
+        const checkPedido = await Pedido.findById(id);
+        if (!checkPedido) {
+            return  res.status(500).json("Id não encontrado");
+        }
         try {
-            const { id } = req.params;
-
             await Pedido.findByIdAndDelete(id);
-
-            return res.status(204).json("Pedido deletado");
+            return res.status(200).json("Pedido deletado");
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
