@@ -27,7 +27,8 @@ const authController = {
                 isAdmin: usuario.isAdmin
             }, 
                 secret.key,{
-            });
+            },
+            );
             return res.json(token);
         } catch(error) {
             return res.status(500).json("Não foi possível realizar a ação");

@@ -1,7 +1,7 @@
 import mongoose, { Schema, model } from "mongoose";
-import Categoria, {categoria} from "./Categorias";
+import { categoria } from "./Categorias";
 
-interface livro {
+export interface livro {
     nome: string,
     foto: string,
     preco: number,

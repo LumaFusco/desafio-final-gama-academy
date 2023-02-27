@@ -1,7 +1,6 @@
 import Joi from 'joi';
 import { validate } from 'express-validation';
 
-
 const validationUsuario = validate({
     body: Joi.object({
         nome: Joi.string().required(),
@@ -10,6 +9,5 @@ const validationUsuario = validate({
         isAdmin: Joi.boolean()
     })
 });
-
 
 export default validationUsuario;

@@ -9,7 +9,7 @@ export interface usuario {
 
 const usuarioSchema = new Schema<usuario>({
     nome: { type: String, required: true},
-    email: { type: String, required: true},
+    email: { type: String, required: true, unique: true},
     senha: { type: String, required: true},
     isAdmin: { type: Boolean, required: true, default: false},
 },
@@ -21,5 +21,3 @@ const usuarioSchema = new Schema<usuario>({
 const Usuario = model<usuario>("Usuario", usuarioSchema);
 
 export default Usuario;
-
-// enum: [nivel.CLIENTE, nivel.ADMIN],

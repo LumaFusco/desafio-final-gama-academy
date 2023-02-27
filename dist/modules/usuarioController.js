@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-// import { usuario, } from "../models/Usuarios";
 const usuarioController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -49,9 +48,7 @@ const usuarioController = {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                const usuario = yield models_1.Usuario.findOne({
-                    id: id,
-                });
+                const usuario = yield models_1.Usuario.findById(id);
                 return res.json(usuario);
             }
             catch (error) {
@@ -78,7 +75,7 @@ const usuarioController = {
                         senha: senhaCripto,
                     },
                 });
-                return res.sendStatus(204);
+                return res.sendStatus(204).json("Informações atualizadas");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -90,7 +87,7 @@ const usuarioController = {
             const { id } = req.params;
             try {
                 yield models_1.Usuario.findByIdAndDelete({});
-                return res.sendStatus(204);
+                return res.sendStatus(204).json("Deletado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
