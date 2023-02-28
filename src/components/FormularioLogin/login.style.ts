@@ -68,6 +68,18 @@ export const Container = style.div`
         border-radius: 12px;
         margin-bottom: 12px;
     }
+    .formLogin .reset p{
+        font-weight: 600;
+        font-size: 16px;
+        line-height:19px;
+        color: #000000;
+    }
+    .formLogin .reset{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+    }
 
     .formLogin form .inputContainer input:hover{
         border: 1px solid #00896b;
@@ -82,6 +94,7 @@ export const Container = style.div`
     }
 
     .formLogin form a:hover{
+        display: flex;
         color:  #00796B;
         text-decoration: underline;
     }
@@ -111,7 +124,7 @@ export const Container = style.div`
 
     .formLogin form .button:hover{
         opacity: 0.8;
-        font-size: 20px;
+        font-size: 21px;
         border: 3px solid #0073;
     }
 
