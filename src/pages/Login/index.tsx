@@ -1,12 +1,18 @@
 import Header from '../../components/Header'
 import Footer from '../../components/footer/Footer'
+import Login from '../../components/FormularioLogin/FormLogin'
 
-export default function Login() {
+ function PageLogin() {
   return (
     <div>
-      <Header />
-      <h1>Essa é a página do login</h1>
+      <header>
+        <Header />
+      </header>
+      <section>
+        <Login />
+      </section>
       <Footer />
     </div>
-  );
-};
+  )
+}
+export default PageLogin
