@@ -3,8 +3,8 @@ import{Link, Link as LinkRoute} from 'react-router-dom'
 function Footer () {
     return(
         <C.Container>
-            <div>
-            <LinkRoute to='/'>Teal Book</LinkRoute>
+            <div >
+            <LinkRoute to='/' className='logo'>Teal Book</LinkRoute>
             </div>
             <div>
                 <span>Projeto desenvolvido por: </span>
