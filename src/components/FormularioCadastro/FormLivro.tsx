@@ -1,4 +1,3 @@
-import { event } from "jquery";
 import React, { useState } from "react";
 
 const Formulario = () => {
