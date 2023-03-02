@@ -1,0 +1,41 @@
+.carouselSection {
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 80px auto;
+  height: 400px;
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.carouselInner {
+  border-radius: 12px;
+  justify-content: space-between;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.carouselInner .left {
+  margin-left: 20px;
+  cursor: pointer;
+  place-items: center;
+  display: grid;
+  color: lightgrey;
+}
+.carouselInner .right {
+  margin-right: 20px;
+  cursor: pointer;
+  place-items: center;
+  display: grid;
+  color: lightgrey;
+}
+
+@media (max-width: 768px){
+  .carouselSection{
+    width: 85%;
+  }
+}

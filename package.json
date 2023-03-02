@@ -1,33 +1,56 @@
 {
-  "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.13.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
-  },
+  "name": "desafio-final-gama-academy",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/cors": "^2.8.13",
-    "@types/jsonwebtoken": "^9.0.1",
-    "@types/typescript": "^2.0.0",
-    "bcrypt": "^5.1.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-error-handler": "^1.1.0",
-    "express-jwt": "^8.4.1",
-    "express-validation": "^4.1.0",
-    "express-validator": "^6.15.0",
-    "http-status": "^1.6.2",
-    "joi": "^17.8.1",
-    "joi-to-typescript": "^4.0.7",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.9.1",
-    "mout": "^1.2.4",
-    "nodemon": "^2.0.20"
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/jquery": "^3.5.16",
+    "@types/node": "^16.18.12",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "bootstrap": "^5.3.0-alpha1",
+    "jquery": "^3.6.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.2.0",
+    "react-dropdown": "^1.11.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "nodemon ./src/index.ts",
-    "dist": "tsc"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
   }
 }
