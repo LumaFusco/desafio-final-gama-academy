@@ -8,7 +8,7 @@ async function categoriaError(
 ){
   try {
     const checkCategoria = await Categoria.findOne({
-      nome: req.body.nome,
+      nome: req.body.nome.toUpperCase(),
     });
     if (checkCategoria) {
       return res.status(400).json({ error: 'Já existe uma categoria com esse nome' });

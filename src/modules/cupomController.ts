@@ -1,14 +1,15 @@
 import { Request, Response, NextFunction } from "express";
-import { Categoria } from "../models";
+import { Cupom } from "../models";
 
-const categoriaController = {
+const cupomController = {
     async create(req: Request, res: Response) {
-        const {nome} = req.body;
+        const {nome, desconto} = req.body;
         try {
-            const newCategoria = await Categoria.create({
+            const newCupom = await Cupom.create({
                 nome: nome.toUpperCase(),
+                desconto
             })
-            return res.status(201).json(newCategoria);
+            return res.status(201).json(newCupom);
         } catch(error) {
             return res.status(400).json("Não foi possível realizar o cadastro");
         }  
@@ -16,8 +17,8 @@ const categoriaController = {
 
     async findAll(req: Request, res: Response) {
         try {
-            const categorias = await Categoria.find();
-            return res.json(categorias);
+            const cupons = await Cupom.find();
+            return res.json(cupons);
         } catch (error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -25,13 +26,13 @@ const categoriaController = {
 
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
-        const checkCategoria = await Categoria.findById(id);
-        if (!checkCategoria) {
+        const checkCupom = await Cupom.findById(id);
+        if (!checkCupom) {
             return  res.status(500).json("Id não encontrado");
         }
         try{
-            const categoria = await Categoria.findById(id);
-            return res.json(categoria);
+            const cupom = await Cupom.findById(id);
+            return res.json(cupom);
         } catch (error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -39,18 +40,19 @@ const categoriaController = {
 
     async update(req: Request, res: Response) {
         const { id } = req.params;
-        const { nome } = req.body;
-        const checkCategoria = await Categoria.findById(id);
-        if (!checkCategoria) {
+        const { nome, desconto } = req.body;
+        const checkCupom = await Cupom.findById(id);
+        if (!checkCupom) {
             return  res.status(500).json("Id não encontrado");
         }
         try {
-            await Categoria.updateOne({
+            await Cupom.updateOne({
                 _id: id,
             },
             {
                 $set: {
-                    nome: nome.toUpperCase()
+                    nome: nome.toUpperCase(),
+                    desconto
                 },
             });
             return res.status(200).json("Informações atualizadas");
@@ -61,17 +63,17 @@ const categoriaController = {
 
     async delete(req: Request, res: Response) {
         const { id } = req.params;
-        const checkCategoria = await Categoria.findById(id);
-        if (!checkCategoria) {
+        const checkCupom = await Cupom.findById(id);
+        if (!checkCupom) {
             return  res.status(500).json("Id não encontrado");
         }
         try{
-            await Categoria.findByIdAndDelete(id);
-            return res.status(200).json("Categoria Deletada");
+            await Cupom.findByIdAndDelete(id);
+            return res.status(200).json("Cupom Deletado");
         } catch (error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
     },
 }
 
-export default categoriaController;
+export default cupomController;

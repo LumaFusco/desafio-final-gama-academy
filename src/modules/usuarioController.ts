@@ -8,8 +8,8 @@ const usuarioController = {
         const senhaCripto = bcrypt.hashSync(senha, 10);
         try{
             const newUsuario = await Usuario.create({
-                nome,
-                email,
+                nome: nome.toUpperCase(),
+                email: email.toLowerCase(),
                 senha: senhaCripto,
                 isAdmin,
             })
@@ -30,6 +30,10 @@ const usuarioController = {
 
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
+        const checkUsuario = await Usuario.findById(id);
+        if (!checkUsuario) {
+            return res.status(404).json("Id não encontrado");
+        }
         try {
             const usuario = await Usuario.findById(id)
             return res.json(usuario)
@@ -40,8 +44,7 @@ const usuarioController = {
 
     async update(req: Request, res: Response) {
         const { id } = req.params;
-        const { nome, email, senha } = req.body;
-        const senhaCripto = bcrypt.hashSync(senha, 10);
+        const { nome, email} = req.body;
         const checkUsuario = await Usuario.findById(id);
         if (!checkUsuario) {
             return res.status(404).json("Id não encontrado");
@@ -51,11 +54,10 @@ const usuarioController = {
                 _id: id,
             },
             {
-            $set: {
-                nome,
-                email,
-                senha: senhaCripto,
-            },
+                $set: {
+                    nome: nome?.toUpperCase(),
+                    email: email?.toLowerCase(),
+                },
             });
             return res.status(200).json("Informações Atualizadas");
         } catch(error) {
