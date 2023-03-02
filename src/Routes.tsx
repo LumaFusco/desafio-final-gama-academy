@@ -5,8 +5,7 @@ import Carrinho from './pages/Carrinho'
 import Livro from './pages/Livro'
 import Livros from './pages/Livros'
 import { CadastroLivro } from './pages/CadastroNovoLivro/CadastroLivro'
-
-
+import {AttProfile} from './pages/AtualizaPerfil/index'
 
 export default function Routes() {
   return (
@@ -18,6 +17,7 @@ export default function Routes() {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroLivro />} />
+        <Route path="/atualizar-perfil" element={<AttProfile />} />
       </WrapperRoutes>
     </BrowserRouter>
   )
