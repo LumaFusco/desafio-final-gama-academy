@@ -22,8 +22,18 @@ const livroController = {
 
     async findAll(req: Request, res: Response) {
         try {
-            const livros = await Livro.find();
+            const livros = await Livro.find().populate('categoria');
             return res.json(livros);
+        } catch(error) {
+            return  res.status(500).json("Não foi possível realizar a ação");
+        }
+    },
+
+    async find(req: Request, res: Response) {
+        try {
+            const { id } = req.params;
+            const livros = await Livro.find({ categoria: id }).populate('categoria');
+            return res.json(livros)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }

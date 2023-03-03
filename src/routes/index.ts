@@ -21,7 +21,6 @@ import idRequestError from "../middlewares/idResquestError";
 const routes = Router();
 
 routes.post("/login", validationLogin, authController.login)
-
 routes.put("/login/senha/:id", authValidation, idRequestError, newSenha.update);
 
 routes.post("/usuario", validationUsuario, usuarioController.create);
@@ -38,6 +37,7 @@ routes.delete("/categoria/:id", authValidation, isAdminError, categoriaControlle
 
 routes.post("/livro", authValidation, isAdminError, validationLivro, livroController.create);
 routes.get("/livro", livroController.findAll);
+routes.get("/livro", livroController.find);
 routes.get("/livro/:id", livroController.findOne);
 routes.put("/livro/:id", authValidation, isAdminError, updateLivro, livroController.update);
 routes.delete("/livro/:id", authValidation, isAdminError, livroController.delete);
