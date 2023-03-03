@@ -116,16 +116,10 @@ export const Container = style.div`
         font-size: 22px;
     }
 
-    .formLogin form .button img{
-        width: 50px;
-        height: 50px;
-        color: #fff
-    }
-
     .formLogin form .button:hover{
         opacity: 0.8;
         font-size: 21px;
-        border: 3px solid #0073;
+        border: 2px solid #0073;
     }
 
     .formLogin form .footerForm{
