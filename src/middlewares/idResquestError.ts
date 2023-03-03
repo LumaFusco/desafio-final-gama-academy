@@ -7,11 +7,11 @@ async function idRequestError(
   next: NextFunction
 ){
   try {
-      const usuario = await Usuario.findById(req.headers['id']);
+      const usuario = await Usuario.findById(res.locals.jwtPayload.id);
       if (usuario?.isAdmin) {
         return next();
       } 
-      if (usuario?.id == req.params['id']) {
+      if (usuario?.id == res.locals.jwtPayload.id) {
         return next();
       }
       return res.status(401).json('Usuário não autorizado');
