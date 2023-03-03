@@ -12,8 +12,15 @@ export const Container = styled.div`
 }
 
 .btn{
+    font-size: 15px;
+    font-weight: 600;
     background: #00796B;
     border: none;
+}
+.btn:hover{
+    opacity: 0.8;
+    font-size: 14px;
+    border: 1px solid #0073;
 }
 
 .link2 a{
