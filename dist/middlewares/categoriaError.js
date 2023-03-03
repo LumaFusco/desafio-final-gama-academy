@@ -14,14 +14,14 @@ function categoriaError(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const checkCategoria = yield models_1.Categoria.findOne({
-                nome: req.body.nome,
+                nome: req.body.nome.toUpperCase(),
             });
             if (checkCategoria) {
                 return res.status(400).json({ error: 'Já existe uma categoria com esse nome' });
             }
             return next();
         }
-        catch (err) {
+        catch (error) {
             return res.status(500).json({ error: 'Falha ao verificar categoria' });
         }
     });

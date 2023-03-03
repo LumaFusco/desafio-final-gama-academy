@@ -10,21 +10,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
-const livroController = {
+const cupomController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { nome, foto, preco, descricao, categoria, autor } = req.body;
+            const { nome, desconto } = req.body;
             try {
-                const newLivro = yield models_1.Livro.create({
-                    nome,
-                    foto,
-                    preco,
-                    descricao,
-                    categoria,
-                    autor,
+                const newCupom = yield models_1.Cupom.create({
+                    nome: nome.toUpperCase(),
+                    desconto
                 });
-                yield newLivro.populate('categoria');
-                return res.status(201).json(newLivro);
+                return res.status(201).json(newCupom);
             }
             catch (error) {
                 return res.status(400).json("Não foi possível realizar o cadastro");
@@ -34,8 +29,8 @@ const livroController = {
     findAll(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const livros = yield models_1.Livro.find();
-                return res.json(livros);
+                const cupons = yield models_1.Cupom.find();
+                return res.json(cupons);
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -45,14 +40,13 @@ const livroController = {
     findOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const checkLivro = yield models_1.Livro.findById(id);
-            if (!checkLivro) {
+            const checkCupom = yield models_1.Cupom.findById(id);
+            if (!checkCupom) {
                 return res.status(500).json("Id não encontrado");
             }
             try {
-                const livro = yield models_1.Livro.findById(id);
-                yield (livro === null || livro === void 0 ? void 0 : livro.populate('categoria'));
-                return res.json(livro);
+                const cupom = yield models_1.Cupom.findById(id);
+                return res.json(cupom);
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -62,22 +56,18 @@ const livroController = {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const { nome, foto, preco, descricao, categoria, autor } = req.body;
-            const checkLivro = yield models_1.Livro.findById(id);
-            if (!checkLivro) {
+            const { nome, desconto } = req.body;
+            const checkCupom = yield models_1.Cupom.findById(id);
+            if (!checkCupom) {
                 return res.status(500).json("Id não encontrado");
             }
             try {
-                yield models_1.Livro.updateOne({
+                yield models_1.Cupom.updateOne({
                     _id: id,
                 }, {
                     $set: {
-                        nome,
-                        foto,
-                        preco,
-                        descricao,
-                        categoria,
-                        autor,
+                        nome: nome.toUpperCase(),
+                        desconto
                     },
                 });
                 return res.status(200).json("Informações atualizadas");
@@ -90,13 +80,13 @@ const livroController = {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const checkLivro = yield models_1.Livro.findById(id);
-            if (!checkLivro) {
+            const checkCupom = yield models_1.Cupom.findById(id);
+            if (!checkCupom) {
                 return res.status(500).json("Id não encontrado");
             }
             try {
-                yield models_1.Livro.findByIdAndDelete(id);
-                return res.status(200).json("Livro deletado");
+                yield models_1.Cupom.findByIdAndDelete(id);
+                return res.status(200).json("Cupom Deletado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -104,4 +94,4 @@ const livroController = {
         });
     },
 };
-exports.default = livroController;
+exports.default = cupomController;

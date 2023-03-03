@@ -16,11 +16,11 @@ app.use("/", routes)
 app.use(handleError)
 
 
-/*app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log('Server started')
 
     mongoDB.createConnection()
 
-})*/
+})
 
 export default app

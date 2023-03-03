@@ -26,7 +26,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const pedidoSchema = new mongoose_1.Schema({
     usuario: { type: mongoose_1.default.Schema.Types.ObjectId, required: true, ref: "Usuario" },
-    produto: { type: mongoose_1.default.Schema.Types.ObjectId, required: true, ref: "Livro" },
+    produto: [{ type: mongoose_1.default.Schema.Types.ObjectId, required: true, ref: "Livro" }],
+    cupom: { type: mongoose_1.default.Schema.Types.ObjectId, ref: "Cupom" },
     valorTotal: { type: Number, required: true }
 }, {
     timestamps: true,

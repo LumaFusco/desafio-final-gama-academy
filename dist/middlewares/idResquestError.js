@@ -10,18 +10,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
-function isAdminError(req, res, next) {
+function idRequestError(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const usuario = yield models_1.Usuario.findById(res.locals.jwtPayload.id);
-            if (!(usuario === null || usuario === void 0 ? void 0 : usuario.isAdmin)) {
-                return res.status(401).json({ error: 'Usuário não autorizado' });
+            if (usuario === null || usuario === void 0 ? void 0 : usuario.isAdmin) {
+                return next();
             }
-            return next();
+            if ((usuario === null || usuario === void 0 ? void 0 : usuario.id) == res.locals.jwtPayload.id) {
+                return next();
+            }
+            return res.status(401).json('Usuário não autorizado');
         }
         catch (error) {
             return res.status(500).json({ error: 'Falha ao verificar Usuario' });
         }
     });
 }
-exports.default = isAdminError;
+exports.default = idRequestError;
