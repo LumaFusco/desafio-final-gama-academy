@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-// import { usuario, } from "../models/Usuarios";
 const usuarioController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -22,8 +21,8 @@ const usuarioController = {
             const senhaCripto = bcrypt_1.default.hashSync(senha, 10);
             try {
                 const newUsuario = yield models_1.Usuario.create({
-                    nome,
-                    email,
+                    nome: nome.toUpperCase(),
+                    email: email.toLowerCase(),
                     senha: senhaCripto,
                     isAdmin,
                 });
@@ -48,10 +47,12 @@ const usuarioController = {
     findOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
+            const checkUsuario = yield models_1.Usuario.findById(id);
+            if (!checkUsuario) {
+                return res.status(404).json("Id não encontrado");
+            }
             try {
-                const usuario = yield models_1.Usuario.findOne({
-                    id: id,
-                });
+                const usuario = yield models_1.Usuario.findById(id);
                 return res.json(usuario);
             }
             catch (error) {
@@ -62,23 +63,21 @@ const usuarioController = {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const { nome, email, senha } = req.body;
-            const senhaCripto = bcrypt_1.default.hashSync(senha, 10);
+            const { nome, email } = req.body;
             const checkUsuario = yield models_1.Usuario.findById(id);
             if (!checkUsuario) {
                 return res.status(404).json("Id não encontrado");
             }
             try {
-                const updated = yield models_1.Usuario.updateOne({
-                    id: id,
+                yield models_1.Usuario.updateOne({
+                    _id: id,
                 }, {
                     $set: {
-                        nome,
-                        email,
-                        senha: senhaCripto,
+                        nome: nome === null || nome === void 0 ? void 0 : nome.toUpperCase(),
+                        email: email === null || email === void 0 ? void 0 : email.toLowerCase(),
                     },
                 });
-                return res.sendStatus(204);
+                return res.status(200).json("Informações Atualizadas");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -88,9 +87,13 @@ const usuarioController = {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
+            const checkUsuario = yield models_1.Usuario.findById(id);
+            if (!checkUsuario) {
+                return res.status(404).json("Id não encontrado");
+            }
             try {
-                yield models_1.Usuario.findByIdAndDelete({});
-                return res.sendStatus(204);
+                yield models_1.Usuario.findByIdAndDelete(id);
+                return res.status(200).json("Usuário Deletado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");

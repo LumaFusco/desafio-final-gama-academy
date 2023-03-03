@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
-// import Usuario, { usuario, nivel } from "../models/Usuarios";
 const livroController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -22,14 +21,9 @@ const livroController = {
                     preco,
                     descricao,
                     categoria,
-                    autor
+                    autor,
                 });
-                // colocar código para só admin poder fazer cadastro
-                // const admin = req.params.id;
-                // const checknivel = await Usuario.findOne(id);
-                // if (admin !== nivel.ADMIN ) {
-                //     return res.status(403).json("Somente administradores podem realizar essa ação")
-                // }
+                yield newLivro.populate('categoria');
                 return res.status(201).json(newLivro);
             }
             catch (error) {
@@ -50,11 +44,14 @@ const livroController = {
     },
     findOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { nome } = req.params;
+            const { id } = req.params;
+            const checkLivro = yield models_1.Livro.findById(id);
+            if (!checkLivro) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
-                const livro = yield models_1.Livro.findOne({
-                    nome: nome,
-                });
+                const livro = yield models_1.Livro.findById(id);
+                yield (livro === null || livro === void 0 ? void 0 : livro.populate('categoria'));
                 return res.json(livro);
             }
             catch (error) {
@@ -66,8 +63,12 @@ const livroController = {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const { nome, foto, preco, descricao, categoria, autor } = req.body;
+            const checkLivro = yield models_1.Livro.findById(id);
+            if (!checkLivro) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
-                const updated = yield models_1.Livro.updateOne({
+                yield models_1.Livro.updateOne({
                     _id: id,
                 }, {
                     $set: {
@@ -76,10 +77,10 @@ const livroController = {
                         preco,
                         descricao,
                         categoria,
-                        autor
+                        autor,
                     },
                 });
-                return res.sendStatus(204);
+                return res.status(200).json("Informações atualizadas");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -88,10 +89,14 @@ const livroController = {
     },
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const checkLivro = yield models_1.Livro.findById(id);
+            if (!checkLivro) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
-                const { id } = req.params;
-                yield models_1.Livro.findByIdAndDelete({});
-                return res.sendStatus(204);
+                yield models_1.Livro.findByIdAndDelete(id);
+                return res.status(200).json("Livro deletado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");

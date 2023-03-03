@@ -16,12 +16,8 @@ const categoriaController = {
             const { nome } = req.body;
             try {
                 const newCategoria = yield models_1.Categoria.create({
-                    nome,
+                    nome: nome.toUpperCase(),
                 });
-                const checkCategoria = yield models_1.Categoria.count(nome);
-                if (checkCategoria) {
-                    return res.status(500).json("categoria já cadastrada");
-                }
                 return res.status(201).json(newCategoria);
             }
             catch (error) {
@@ -43,6 +39,10 @@ const categoriaController = {
     findOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
+            const checkCategoria = yield models_1.Categoria.findById(id);
+            if (!checkCategoria) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
                 const categoria = yield models_1.Categoria.findById(id);
                 return res.json(categoria);
@@ -58,17 +58,17 @@ const categoriaController = {
             const { nome } = req.body;
             const checkCategoria = yield models_1.Categoria.findById(id);
             if (!checkCategoria) {
-                return res.status(500).json("Não foi possível realizar a ação");
+                return res.status(500).json("Id não encontrado");
             }
             try {
-                const updated = yield models_1.Categoria.updateOne({
-                    id: nome,
+                yield models_1.Categoria.updateOne({
+                    _id: id,
                 }, {
                     $set: {
-                        nome
+                        nome: nome.toUpperCase()
                     },
                 });
-                return res.sendStatus(204);
+                return res.status(200).json("Informações atualizadas");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -80,11 +80,11 @@ const categoriaController = {
             const { id } = req.params;
             const checkCategoria = yield models_1.Categoria.findById(id);
             if (!checkCategoria) {
-                return res.status(404).json("Id não encontrado");
+                return res.status(500).json("Id não encontrado");
             }
             try {
-                yield models_1.Categoria.findByIdAndDelete({});
-                return res.sendStatus(204);
+                yield models_1.Categoria.findByIdAndDelete(id);
+                return res.status(200).json("Categoria Deletada");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
