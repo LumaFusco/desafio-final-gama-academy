@@ -12,7 +12,7 @@ export const Container = styled.footer`
     align-items: center;
   
     bottom: 0;
-    margin-top: 150px;
+    margin-top: 15vh;
  
     p {
         padding: 10px;

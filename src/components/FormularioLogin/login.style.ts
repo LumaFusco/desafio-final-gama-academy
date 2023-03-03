@@ -11,7 +11,7 @@ export const Container = style.div`
 
     .formLogin {
         width: 0 auto;
-        height: auto;
+        height: 68vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -140,6 +140,22 @@ export const Container = style.div`
         font-size: 16px;
         line-height:19px;
         color: #000000;
+    }
+
+    @media (max-width: 768px){
+        margin: auto
+       max-width: 80%;
+       input, form, button, .inputContainer{
+        max-width: 90%;
+       }
+       .footerForm{
+        text-align: center
+        margin: auto;
+        
+        & p {
+            padding: 16px
+        }
+       }
     }
 
 `;

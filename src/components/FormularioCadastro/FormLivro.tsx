@@ -17,6 +17,7 @@ const Formulario = () => {
     preco: "",
     descricao: "",
     categoria: "",
+    autor: ""
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -25,6 +26,7 @@ const Formulario = () => {
     preco: "",
     descricao: "",
     categoria: "",
+    autor: "",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -97,6 +99,16 @@ const Formulario = () => {
             onChange={handleChange}
           />
           <label htmlFor="descricao">Descrição do Livro</label>
+        </div>
+        <div className="areaForm">
+          <input
+            type="text"
+            id="autor"
+            name="autor"
+            value={formData.autor}
+            onChange={handleChange}
+          />
+          <label htmlFor="descricao">Nome do Autor</label>
         </div>
         <div className="areaFormRadio">
           <span>Escolha uma categoria:</span>

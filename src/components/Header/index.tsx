@@ -34,7 +34,7 @@ function Header() {
           </Navbar.Collapse>
               <NavDropdown title="Login" id="basic-nav-dropdown" className='link2'>
                 <NavDropdown.Item href="" ><LinkRoute to='/Login'>Entrar</LinkRoute></NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Configurações do Perfil</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2"> <LinkRoute to ='/atualizar-perfil'> Configurações do Perfil</LinkRoute></NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Últimos Pedidos

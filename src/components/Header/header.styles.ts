@@ -25,4 +25,10 @@ export const Container = styled.div`
     cursor: pointer;
 }
 
-    `;
+@media (max-width: 768px) {
+    .dropdown-menu[data-bs-popper]{
+        left: -70px;
+        top: 40px
+    }
+};
+`;

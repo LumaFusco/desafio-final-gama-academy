@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
    max-width: 1320px;
-   min-height: 100%;
-   margin: 50px auto;
+   height: 100%;
+   margin: 100px auto;
 `;
 
 export const Form = styled.div`
     form{
-        min-height: 100%;
+        max-height: 100%;
     }
     input{
         margin-bottom: 20px;
@@ -40,6 +40,11 @@ export const Form = styled.div`
         border: 1px solid #CCC;
         border-radius: 4px;
         margin-top: 10px;
+    }
+
+    @media (max-width: 768px){
+        font-size: 15px;
+        max-height: 20vh;
     }
 
 `;
