@@ -1,10 +1,13 @@
 import { Router } from "express";
 import authController from "../modules/authController";
 import categoriaController from "../modules/categoriaController";
+import cupomController from "../modules/cupomController";
 import usuarioController from "../modules/usuarioController";
 import livroController from "../modules/livroController";
 import pedidoController from "../modules/pedidoController";
+import newSenha from "../modules/senhaController";
 import validationCategoria from "../validations/categorias/createCategorias";
+import validationCupom from "../validations/cupom/createCupom";
 import validationUsuario from "../validations/usuario/createUsuario";
 import validationLivro from "../validations/livros/createLivro";
 import validationPedido from "../validations/pedidos/createPedido";
@@ -13,16 +16,18 @@ import authValidation from "../middlewares/auth";
 import updateLivro from "../validations/livros/updateLivro";
 import categoriaError from "../middlewares/categoriaError";
 import isAdminError from "../middlewares/isAdminError";
+import idRequestError from "../middlewares/idResquestError";
 
 const routes = Router();
 
 routes.post("/login", validationLogin, authController.login)
 
+routes.put("/login/senha/:id", authValidation, idRequestError, newSenha.update);
 
 routes.post("/usuario", validationUsuario, usuarioController.create);
 routes.get("/usuario", authValidation, isAdminError, usuarioController.findAll);
-routes.get("/usuario/:id", authValidation ,usuarioController.findOne);
-routes.put("/usuario/:id", authValidation, validationUsuario, usuarioController.update);
+routes.get("/usuario/:id", authValidation ,idRequestError, usuarioController.findOne);
+routes.put("/usuario/:id", authValidation, idRequestError ,usuarioController.update);
 routes.delete("/usuario/:id", authValidation, isAdminError, usuarioController.delete);
 
 routes.post("/categoria", authValidation, categoriaError, isAdminError, validationCategoria, categoriaController.create);
@@ -36,6 +41,12 @@ routes.get("/livro", livroController.findAll);
 routes.get("/livro/:id", livroController.findOne);
 routes.put("/livro/:id", authValidation, isAdminError, updateLivro, livroController.update);
 routes.delete("/livro/:id", authValidation, isAdminError, livroController.delete);
+
+routes.post("/cupom", authValidation, isAdminError, validationCupom, cupomController.create);
+routes.get("/cupom", authValidation, cupomController.findAll);
+routes.get("/cupom/:id", authValidation, cupomController.findOne);
+routes.put("/cupom/:id", authValidation, isAdminError, cupomController.update);
+routes.delete("/cupom/:id", authValidation, isAdminError, cupomController.delete);
 
 routes.post("/pedido", authValidation, validationPedido, pedidoController.create);
 routes.get("/pedido", authValidation, pedidoController.findAll);

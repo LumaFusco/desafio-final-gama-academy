@@ -7,8 +7,8 @@ async function isAdminError(
   next: NextFunction
 ){
   try {
-      const usuario = await Usuario.findById(req.headers['id']);
-      if (!usuario?.isAdmin) {
+    const usuario = await Usuario.findById(res.locals.jwtPayload.id);
+    if (!usuario?.isAdmin) {
         return res.status(401).json({ error: 'Usuário não autorizado' });
       }
       return next();  
@@ -18,7 +18,3 @@ async function isAdminError(
 }
 
 export default isAdminError;
-
-
-
-      

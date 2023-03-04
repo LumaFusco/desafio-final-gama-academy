@@ -11,8 +11,9 @@ const livroController = {
                 preco,
                 descricao,
                 categoria,
-                autor
+                autor,
             })
+            await newLivro.populate('categoria');
             return res.status(201).json(newLivro);
         } catch(error) {
             return res.status(400).json("Não foi possível realizar o cadastro");
@@ -30,8 +31,13 @@ const livroController = {
 
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
+        const checkLivro = await Livro.findById(id);
+        if (!checkLivro) {
+            return  res.status(500).json("Id não encontrado");
+        }
         try {
             const livro = await Livro.findById(id)
+            await livro?.populate('categoria');
             return res.json(livro)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
@@ -50,14 +56,14 @@ const livroController = {
                 _id: id,
             },
             {
-            $set: {
-                nome,
-                foto, 
-                preco, 
-                descricao, 
-                categoria,
-                autor
-            },
+                $set: {
+                    nome,
+                    foto, 
+                    preco, 
+                    descricao, 
+                    categoria,
+                    autor,
+                },
             })
             return res.status(200).json("Informações atualizadas");
         } catch(error) {

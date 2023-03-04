@@ -6,7 +6,7 @@ const categoriaController = {
         const {nome} = req.body;
         try {
             const newCategoria = await Categoria.create({
-                nome,
+                nome: nome.toUpperCase(),
             })
             return res.status(201).json(newCategoria);
         } catch(error) {
@@ -25,10 +25,13 @@ const categoriaController = {
 
     async findOne(req: Request, res: Response) {
         const { id } = req.params;
+        const checkCategoria = await Categoria.findById(id);
+        if (!checkCategoria) {
+            return  res.status(500).json("Id não encontrado");
+        }
         try{
             const categoria = await Categoria.findById(id);
-    
-            return res.json(categoria)
+            return res.json(categoria);
         } catch (error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -46,9 +49,9 @@ const categoriaController = {
                 _id: id,
             },
             {
-            $set: {
-                nome
-            },
+                $set: {
+                    nome: nome.toUpperCase()
+                },
             });
             return res.status(200).json("Informações atualizadas");
         } catch (error) {

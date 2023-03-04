@@ -13,14 +13,14 @@ const models_1 = require("../models");
 function isAdminError(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const usuario = yield models_1.Usuario.findById(req.headers['authValidation']);
+            const usuario = yield models_1.Usuario.findById(res.locals.jwtPayload.id);
             if (!(usuario === null || usuario === void 0 ? void 0 : usuario.isAdmin)) {
                 return res.status(401).json({ error: 'Usuário não autorizado' });
             }
             return next();
         }
-        catch (err) {
-            return res.status(500).json({ error: 'Falha ao verificar categoria' });
+        catch (error) {
+            return res.status(500).json({ error: 'Falha ao verificar Usuario' });
         }
     });
 }

@@ -16,13 +16,17 @@ const Pedidos_1 = __importDefault(require("../models/Pedidos"));
 const pedidoController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { usuario, produto, valorTotal } = req.body;
+            const { usuario, produto, cupom, valorTotal } = req.body;
             try {
                 const newPedido = yield Pedidos_1.default.create({
                     usuario,
                     produto,
+                    cupom,
                     valorTotal
                 });
+                yield newPedido.populate('usuario');
+                yield newPedido.populate('produto');
+                yield newPedido.populate('cupom');
                 return res.status(201).json(newPedido);
             }
             catch (error) {
@@ -44,8 +48,15 @@ const pedidoController = {
     findOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
+            const checkPedido = yield Pedidos_1.default.findById(id);
+            if (!checkPedido) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
                 const pedido = yield Pedidos_1.default.findById(id);
+                yield (pedido === null || pedido === void 0 ? void 0 : pedido.populate('usuario'));
+                yield (pedido === null || pedido === void 0 ? void 0 : pedido.populate('produto'));
+                yield (pedido === null || pedido === void 0 ? void 0 : pedido.populate('cupom'));
                 return res.json(pedido);
             }
             catch (error) {
@@ -56,18 +67,23 @@ const pedidoController = {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const { usuario, produto, valorTotal } = req.body;
+            const { usuario, produto, cupom, valorTotal } = req.body;
+            const checkPedido = yield Pedidos_1.default.findById(id);
+            if (!checkPedido) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
-                const updated = yield Pedidos_1.default.updateOne({
+                yield Pedidos_1.default.updateOne({
                     _id: id,
                 }, {
                     $set: {
                         usuario,
                         produto,
+                        cupom,
                         valorTotal
                     },
                 });
-                return res.status(204).json("Pedido atualizado");
+                return res.status(200).json("Pedido atualizado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");
@@ -76,10 +92,14 @@ const pedidoController = {
     },
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const checkPedido = yield Pedidos_1.default.findById(id);
+            if (!checkPedido) {
+                return res.status(500).json("Id não encontrado");
+            }
             try {
-                const { id } = req.params;
                 yield Pedidos_1.default.findByIdAndDelete(id);
-                return res.status(204).json("Pedido deletado");
+                return res.status(200).json("Pedido deletado");
             }
             catch (error) {
                 return res.status(500).json("Não foi possível realizar a ação");

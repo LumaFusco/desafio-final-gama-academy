@@ -8,7 +8,8 @@ const express_validation_1 = require("express-validation");
 const validationPedido = (0, express_validation_1.validate)({
     body: joi_1.default.object({
         usuario: joi_1.default.string().required(),
-        produto: joi_1.default.string().required(),
+        produto: joi_1.default.array().items().required(),
+        cupom: joi_1.default.string(),
         valorTotal: joi_1.default.number().required(),
     })
 });
