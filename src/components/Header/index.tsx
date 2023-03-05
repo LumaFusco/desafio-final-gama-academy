@@ -52,8 +52,8 @@ function Header() {
               </LinkRoute>
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Últimos Pedidos
+            <NavDropdown.Item href="">
+              <LinkRoute to="/pedidos"> Últimos Pedidos</LinkRoute>             
             </NavDropdown.Item>
           </NavDropdown>
           <div>

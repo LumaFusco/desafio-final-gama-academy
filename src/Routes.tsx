@@ -20,6 +20,7 @@ export default function Routes() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroLivro />} />
         <Route path="/atualizar-perfil" element={<AttProfile />} />
+        <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
       </WrapperRoutes>
     </BrowserRouter>
