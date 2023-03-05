@@ -36,4 +36,31 @@ input[type=number] {
 .imageBook{
     max-width: 90px;
 }
+@media all and (max-width: 822px ){
+   .tabelaPedido tbody tr td{
+        display:block;
+        text-align: right;
+   }
+   .tabelaPedido tbody tr td:before{
+        content: attr(data-title);
+        position: absolute;
+        left: 70px;
+        display: block;
+        font-weight: 700;
+        font-size: 1.1em;
+   }
+   .tabelaPedido thead{
+    display:none;
+   }
+   .tabelaPedido tbody tr{
+    margin-bottom: 30px;
+    display: block;
+    border: 1px solid #dad6eb;
+   }
+};
+@media all and (max-width: 453px ){
+    .tabelaPedido tbody tr td{
+        text-align:;
+    }
+};
   `;
