@@ -11,13 +11,14 @@ export default function Pedidos() {
             <h1>Meus Pedidos</h1>
             <h6>Confira seus pedidos já finalizados:</h6>
           </div>
+
           <Table className="tabelaPedido" striped bordered hover>
             <thead>
               <tr>
                 <td></td>
-                <th># Número do Pedido</th>
+                <th># Pedido Nº</th>
                 <th>Data da Compra</th>
-                <th>Nome do Produto</th>
+                <th>Título</th>
                 <th>Status</th>
                 <th>Quantidade</th>
                 <th>Preço Unitário</th>
@@ -29,15 +30,15 @@ export default function Pedidos() {
                 <td>
                   <img className="imageBook" src={imageBook} alt="" />
                 </td>
-                <td>1</td>
-                <td>27/02/2023</td>
-                <td>A Morte É Um Dia Que Vale A Pena Viver</td>
-                <td>Em andamento</td>
-                <td>
+                <td data-title='#Pedido Nº:'>1</td>
+                <td data-title='Data da Compra:'>27/02/2023</td>
+                <td data-title='Título:'>A Morte É Um Dia Que Vale A Pena Viver</td>
+                <td data-title='Status:'>Em andamento</td>
+                <td data-title='Quantidade:'>
                   <input type="number" id="quantidade" value="1" disabled />
                 </td>
-                <td>R$ 19,80</td>
-                <td>R$ 19,80</td>
+                <td data-title='Preço Unitário:'>R$ 19,80</td>
+                <td data-title='Total:'>R$ 19,80</td>
               </tr>
             </tbody>
           </Table>
