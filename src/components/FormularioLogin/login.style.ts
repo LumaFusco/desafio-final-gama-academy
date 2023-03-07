@@ -141,5 +141,8 @@ export const Container = style.div`
         line-height:19px;
         color: #000000;
     }
+    Button{
+        background: #00796B;
+    }
 
 `;
