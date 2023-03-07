@@ -1,18 +1,18 @@
 import Header from '../../components/Header'
 import Footer from '../../components/footer/Footer'
-import AtualizaPerfil from '../../components/FormularioAtualizaPerfil/AtualizaPerfil'
+import AtualizaSenha from '../../components/FormularioAtualizaSenha/AtualizaSenha'
 
- function AttProfile() {
+ function AttSenha() {
   return (
     <div>
       <header>
         <Header />
       </header>
       <section>
-        <AtualizaPerfil />
+        <AtualizaSenha />
       </section>
       <Footer />
     </div>
   )
 }
-export default AttProfile
+export default AttSenha

@@ -22,22 +22,8 @@ function Header() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="" className="link2">
-                <LinkRoute to="/Livros">Livros</LinkRoute>{" "}
-              </Nav.Link>
-              <Nav.Link href="#link">Categorias</Nav.Link>
-              <div className="container-fluid">
-                <form className="d-flex mx-1" role="search">
-                  <input
-                    className="form-control me-2"
-                    type="search"
-                    placeholder=""
-                    aria-label="Search"
-                  />
-                  <button className="btn btn btn-secondary" type="submit">
-                    Buscar
-                  </button>
-                </form>
-              </div>
+                <LinkRoute to="/Livros">Nossos Livros</LinkRoute>{" "}
+              </Nav.Link>          
             </Nav>
           </Navbar.Collapse>
           <NavDropdown title="Login" id="basic-nav-dropdown" className="link2">

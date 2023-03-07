@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import * as C from './carrinho.style';
 import imageBook from '../../assets/images/A Morte É Um Dia Que Vale A Pena Viver.jpg';
 import { Descricao } from '../../components/DescricaoLivro/descricaoLivro';
+import { carrinhoDeCompras } from "../../Services/MainApi/carrinho";
 
 
 export default function Carrinho() {

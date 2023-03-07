@@ -7,7 +7,9 @@ import Livros from './pages/Livros'
 import Pedidos from './pages/Pedidos'
 import Sucesso from './pages/Sucesso'
 import { CadastroLivro } from './pages/CadastroNovoLivro/CadastroLivro'
-import {AttProfile} from './pages/AtualizaPerfil/index'
+import AttProfile from './pages/AtualizaPerfil/index'
+import AttSenha from './pages/AtualizaSenha'
+
 
 export default function Routes() {
   return (
@@ -20,6 +22,7 @@ export default function Routes() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroLivro />} />
         <Route path="/atualizar-perfil" element={<AttProfile />} />
+        <Route path="/atualizar-senha" element={<AttSenha />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
       </WrapperRoutes>
