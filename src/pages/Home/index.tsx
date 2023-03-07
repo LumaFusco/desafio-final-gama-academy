@@ -9,7 +9,7 @@ function Home() {
   return (
     <body>
       <Header/>
-      <Title titleText="Este é o título2" subTitle="Esse é o sub-título"/>
+      <Title titleText="A leitura está a apenas um clique de distância." subTitle="Navegue por nossas categorias e conheça a livraria considera pelo segundo ano consectivo a maior livraria online do Brasil!"/>
       <Carousel />   
       <Footer />
     </body>
