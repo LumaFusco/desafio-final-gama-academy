@@ -13,7 +13,7 @@ const Formulario = () => {
 
   const [formData, setFormData] = useState({
     nome: "",
-    imagem: "",
+    foto: "",
     preco: "",
     descricao: "",
     categoria: "",
@@ -22,7 +22,7 @@ const Formulario = () => {
 
   const [formErrors, setFormErrors] = useState({
     nome: "",
-    imagem: "",
+    foto: "",
     preco: "",
     descricao: "",
     categoria: "",
@@ -75,7 +75,7 @@ const Formulario = () => {
             type="url"
             id="imagem"
             name="imagem"
-            value={formData.imagem}
+            value={formData.foto}
             onChange={handleChange}
           />
           <label htmlFor="imagem">Insira o Link da Imagem</label>
