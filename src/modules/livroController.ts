@@ -43,7 +43,7 @@ const livroController = {
         const { id } = req.params;
         const checkLivro = await Livro.findById(id);
         if (!checkLivro) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             const livro = await Livro.findById(id)
@@ -59,7 +59,7 @@ const livroController = {
         const { nome, foto, preco, descricao, categoria, autor } = req.body;
         const checkLivro = await Livro.findById(id);
         if (!checkLivro) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Livro.updateOne({
@@ -85,7 +85,7 @@ const livroController = {
         const { id } = req.params;
         const checkLivro = await Livro.findById(id);
         if (!checkLivro) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Livro.findByIdAndDelete(id)

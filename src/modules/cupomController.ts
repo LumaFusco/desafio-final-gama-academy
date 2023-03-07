@@ -28,7 +28,7 @@ const cupomController = {
         const { id } = req.params;
         const checkCupom = await Cupom.findById(id);
         if (!checkCupom) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try{
             const cupom = await Cupom.findById(id);
@@ -43,7 +43,7 @@ const cupomController = {
         const { nome, desconto } = req.body;
         const checkCupom = await Cupom.findById(id);
         if (!checkCupom) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Cupom.updateOne({
@@ -65,7 +65,7 @@ const cupomController = {
         const { id } = req.params;
         const checkCupom = await Cupom.findById(id);
         if (!checkCupom) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try{
             await Cupom.findByIdAndDelete(id);

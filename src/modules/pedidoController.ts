@@ -33,7 +33,7 @@ const pedidoController = {
         const { id } = req.params;
         const checkPedido = await Pedido.findById(id);
         if (!checkPedido) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             const pedido = await Pedido.findById(id)
@@ -51,7 +51,7 @@ const pedidoController = {
         const { usuario, produto, cupom, valorTotal} = req.body;
         const checkPedido = await Pedido.findById(id);
         if (!checkPedido) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Pedido.updateOne({
@@ -75,7 +75,7 @@ const pedidoController = {
         const { id } = req.params;
         const checkPedido = await Pedido.findById(id);
         if (!checkPedido) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Pedido.findByIdAndDelete(id);
