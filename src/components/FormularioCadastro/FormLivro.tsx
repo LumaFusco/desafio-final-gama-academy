@@ -1,7 +1,36 @@
-import React, { useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import * as C from "./FormLivro.style";
+import { cadastroLivro } from "../../Services/MainApi/cadastroLivro";
+import { listarCategorias } from "../../Services/MainApi/categorias";
+
+
+
+console.log(listarCategorias)
+interface Categoria  {
+  _id: string,
+  nome: string,
+}
 
 const Formulario = () => {
+ 
+  const [formData, setFormData] = useState({
+    nome: "",
+    foto: "",
+    preco: "",
+    descricao: "",
+    categoria: "",
+    autor: ""
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    nome: "",
+    foto: "",
+    preco: "",
+    descricao: "",
+    categoria: "",
+    autor: "",
+  });
+
   const [isFormSubmit, setIsformSubmit] = useState(false);
 
   const [formValid, setFormValid] = useState(false);
@@ -11,24 +40,38 @@ const Formulario = () => {
     );
   }
 
-  const [formData, setFormData] = useState({
-    nome: "",
-    imagem: "",
-    preco: "",
-    descricao: "",
-    categoria: "",
-    autor: ""
-  });
+  
+  const [categoria, setCategoria] = useState<Categoria[]>([]);
+  console.log(categoria)
+  useEffect(() => {
+    const getDados = async () => {
+      try {
+        const response = await listarCategorias();
 
-  const [formErrors, setFormErrors] = useState({
-    nome: "",
-    imagem: "",
-    preco: "",
-    descricao: "",
-    categoria: "",
-    autor: "",
-  });
+        setCategoria(response.data);
+      } catch (error) {
+        alert("error");
+      }
+    };
 
+    getDados();
+  }, [setCategoria]);
+
+  const cadastro = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsformSubmit(true);
+    console.log(formData);
+    const payload = formData;
+    try {
+      const response = await cadastroLivro(payload);
+      if (response.status !==201){
+        return alert ('Deu algo errado!')
+      }
+      alert("Cadastro efetuado com sucesso!")
+    } catch (error) {
+      return alert ('Deu algo errado!')
+    }
+  };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsformSubmit(true);
@@ -59,7 +102,7 @@ const Formulario = () => {
   return (
     <C.Container>
       <C.Form>
-      <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
+      <form onSubmit={cadastro} className='container-lg, container-sm, container-sm'>
         <div className="areaForm">
           <input
             type="text"
@@ -73,12 +116,12 @@ const Formulario = () => {
         <div className="areaForm">
           <input
             type="url"
-            id="imagem"
-            name="imagem"
-            value={formData.imagem}
+            id="foto"
+            name="foto"
+            value={formData.foto}
             onChange={handleChange}
           />
-          <label htmlFor="imagem">Insira o Link da Imagem</label>
+          <label htmlFor="foto">Insira o Link da Imagem</label>
         </div>
         <div className="areaForm">
           <input
@@ -113,6 +156,7 @@ const Formulario = () => {
         <div className="areaFormRadio">
           <span>Escolha uma categoria:</span>
           <div>
+           
             <label className="radio">
               <input
                 type="radio"
