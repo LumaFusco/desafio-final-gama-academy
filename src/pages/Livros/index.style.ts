@@ -24,28 +24,52 @@ export const Container = styled.div`
         max-width: 45%;
         color: #979797;
     }
-    .container{
-        width: 100%;
-        display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        background-color: #f1f1f1;
-        border: none;
-        margin: auto;
-    }
+
 
     .card{
         background-color: #f1f1f1;
-        margin: auto;
+       
+        margin: 10px;
         margin-bottom: 40px;
-        justify-content: center;
-        
+        border: 1px solid #ccc;
 
         & img{
-            width: 80%;
+            width: 90%;
             margin: auto;
+            border-radius: 8px;
+        }
+
+        & h5 {
+            text-align: center;
+            color: #00796B;
+            font-weight: 600;
         }
     }
     ul li{
         background-color: #f1f1f1;
+        margin: auto;
+        text-align: center;
+        border: none;
+    }
+    .container{
+        
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        background-color: #f1f1f1;
+        border: none;
+        margin: 100px auto; 
+    }
+
+    .links{
+        text-align: center;
+
+        & a {
+            text-decoration: none;
+            color: #000;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+ 
     }
 `;
