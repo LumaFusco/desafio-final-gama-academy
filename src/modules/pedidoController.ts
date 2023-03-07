@@ -22,7 +22,7 @@ const pedidoController = {
 
     async findAll(req: Request, res: Response) {
         try {
-            const pedidos = await Pedido.find();
+            const pedidos = await Pedido.find().populate('produto').populate('usuario').populate('cupom');
             return res.json(pedidos);
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");

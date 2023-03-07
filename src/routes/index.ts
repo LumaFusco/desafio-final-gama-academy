@@ -37,7 +37,7 @@ routes.delete("/categoria/:id", authValidation, isAdminError, categoriaControlle
 
 routes.post("/livro", authValidation, isAdminError, validationLivro, livroController.create);
 routes.get("/livro", livroController.findAll);
-routes.get("/livro", livroController.find);
+routes.get("/livro/categoria/:id", livroController.find);
 routes.get("/livro/:id", livroController.findOne);
 routes.put("/livro/:id", authValidation, isAdminError, updateLivro, livroController.update);
 routes.delete("/livro/:id", authValidation, isAdminError, livroController.delete);
