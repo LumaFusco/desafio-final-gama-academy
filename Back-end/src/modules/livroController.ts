@@ -22,8 +22,18 @@ const livroController = {
 
     async findAll(req: Request, res: Response) {
         try {
-            const livros = await Livro.find();
+            const livros = await Livro.find().populate('categoria');
             return res.json(livros);
+        } catch(error) {
+            return  res.status(500).json("Não foi possível realizar a ação");
+        }
+    },
+
+    async find(req: Request, res: Response) {
+        try {
+            const { id } = req.params;
+            const livros = await Livro.find({ categoria: id }).populate('categoria');
+            return res.json(livros)
         } catch(error) {
             return  res.status(500).json("Não foi possível realizar a ação");
         }
@@ -33,7 +43,7 @@ const livroController = {
         const { id } = req.params;
         const checkLivro = await Livro.findById(id);
         if (!checkLivro) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             const livro = await Livro.findById(id)
@@ -49,7 +59,7 @@ const livroController = {
         const { nome, foto, preco, descricao, categoria, autor } = req.body;
         const checkLivro = await Livro.findById(id);
         if (!checkLivro) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Livro.updateOne({
@@ -75,7 +85,7 @@ const livroController = {
         const { id } = req.params;
         const checkLivro = await Livro.findById(id);
         if (!checkLivro) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Livro.findByIdAndDelete(id)

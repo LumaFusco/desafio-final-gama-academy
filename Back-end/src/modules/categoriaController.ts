@@ -27,7 +27,7 @@ const categoriaController = {
         const { id } = req.params;
         const checkCategoria = await Categoria.findById(id);
         if (!checkCategoria) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try{
             const categoria = await Categoria.findById(id);
@@ -42,7 +42,7 @@ const categoriaController = {
         const { nome } = req.body;
         const checkCategoria = await Categoria.findById(id);
         if (!checkCategoria) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try {
             await Categoria.updateOne({
@@ -63,7 +63,7 @@ const categoriaController = {
         const { id } = req.params;
         const checkCategoria = await Categoria.findById(id);
         if (!checkCategoria) {
-            return  res.status(500).json("Id não encontrado");
+            return  res.status(404).json("Id não encontrado");
         }
         try{
             await Categoria.findByIdAndDelete(id);
