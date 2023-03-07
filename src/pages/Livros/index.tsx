@@ -47,9 +47,7 @@ export default function Livros() {
         <div className="context">
           <h1>Nossos Livros</h1>
           <h4>
-            Revamp your style with the latest designer trends in men’s clothing
-            or achieve a perfectly curated wardrobe thanks to our line-up of
-            timeless pieces.{" "}
+            Os melhores Livros com os melhores preços.
           </h4>
           <Button />
         </div>
