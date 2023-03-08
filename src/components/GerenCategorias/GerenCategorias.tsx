@@ -53,7 +53,7 @@ export default function GerenCategorias() {
             </tbody>
           </Table>
           <div>
-            <a  className="reset" href="#">Voltar para página inicial</a>
+            <a  className="reset" href="#">Voltar para o painel administrativo</a>
           </div>
         </C.Container>
       </main>

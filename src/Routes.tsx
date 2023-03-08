@@ -11,6 +11,7 @@ import AttProfile from './pages/AtualizaPerfil/index'
 import AttSenha from './pages/AtualizaSenha'
 import PainelAdministrativo from './pages/PainelAdministrativo'
 import GerenCategorias from './components/GerenCategorias/GerenCategorias'
+import { CadastroCategoria } from './pages/CadastroNovaCategoria/CadastroCategoria'
 
 export default function Routes() {
   return (
@@ -23,6 +24,7 @@ export default function Routes() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroLivro />} />
         <Route path="/gerenciamento-categoria" element={<GerenCategorias />} />
+        <Route path="/cadastro-categoria" element={<CadastroCategoria />} />
         <Route path="/atualizar-perfil" element={<AttProfile />} />
         <Route path="/atualizar-senha" element={<AttSenha />} />
         <Route path="/pedidos" element={<Pedidos />} />
