@@ -11,9 +11,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 interface Livro {
+  _id: string;
   nome: string;
   foto: string;
   preco: number;
+  categoria: {
+    nome: string;
+  }
   descricao: string;
   autor: string;
 };
@@ -27,7 +31,7 @@ export default function Livros() {
     const getDados = async () => {
       try {
         const response = await listarLivros();
-
+        console.log("response: ", response.data[0].categoria.nome)
         setLivros(response.data);
       } catch (error) {
         alert("error");
@@ -35,7 +39,7 @@ export default function Livros() {
     };
 
     getDados();
-  }, [setLivros]);
+  }, []);
 
   return (
 
@@ -61,6 +65,7 @@ export default function Livros() {
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item"><span>Autor: </span>{Livro.autor}</li>
+              <li className="list-group-item"><span>Categoria: </span>{Livro.categoria.nome}</li>
               <li className="list-group-item">Preço: R$: {Livro.preco}</li>
             </ul>
             <div className="card-body links">
