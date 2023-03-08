@@ -31,7 +31,7 @@ export default function Livros() {
     const getDados = async () => {
       try {
         const response = await listarLivros();
-        console.log("response: ", response.data[0].categoria.nome)
+        
         setLivros(response.data);
       } catch (error) {
         alert("error");
