@@ -65,8 +65,9 @@ export const Container = styled.div`
 
         & a {
             text-decoration: none;
+            font-size: 13px;
             color: #000;
-            padding: 5px;
+            padding: 3px;
             border: 1px solid #ccc;
             border-radius: 6px;
         }
