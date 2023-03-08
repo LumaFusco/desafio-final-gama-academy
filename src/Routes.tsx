@@ -9,7 +9,8 @@ import Sucesso from './pages/Sucesso'
 import { CadastroLivro } from './pages/CadastroNovoLivro/CadastroLivro'
 import AttProfile from './pages/AtualizaPerfil/index'
 import AttSenha from './pages/AtualizaSenha'
-
+import PainelAdministrativo from './pages/PainelAdministrativo'
+import GerenCategorias from './components/GerenCategorias/GerenCategorias'
 
 export default function Routes() {
   return (
@@ -21,10 +22,12 @@ export default function Routes() {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroLivro />} />
+        <Route path="/gerenciamento-categoria" element={<GerenCategorias />} />
         <Route path="/atualizar-perfil" element={<AttProfile />} />
         <Route path="/atualizar-senha" element={<AttSenha />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
+        <Route path="/painel-administrativo" element={<PainelAdministrativo />} />
       </WrapperRoutes>
     </BrowserRouter>
   )
