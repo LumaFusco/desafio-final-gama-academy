@@ -4,7 +4,6 @@ import * as C from "./index.style";
 import Button from "../../components/Button/";
 import React, { useEffect, useState } from "react";
 import { listarLivros } from "../../Services/MainApi/livros";
-import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CardLivro } from "../../components/CardLivro";
 
