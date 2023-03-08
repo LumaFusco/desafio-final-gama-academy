@@ -59,107 +59,112 @@ const Formulario = () => {
   return (
     <C.Container>
       <C.Form>
-      <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
-        <div className="areaForm">
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-          />
-          <label htmlFor="nome">Nome do Livro</label>
-        </div>
-        <div className="areaForm">
-          <input
-            type="url"
-            id="imagem"
-            name="imagem"
-            value={formData.foto}
-            onChange={handleChange}
-          />
-          <label htmlFor="imagem">Insira o Link da Imagem</label>
-        </div>
-        <div className="areaForm">
-          <input
-            type="text"
-            id="preco"
-            name="preco"
-            value={formData.preco}
-            onChange={handleChange}
-          />
-          <label htmlFor="preco">Informe o Preço</label>
-        </div>
-        <div className="areaForm">
-          <input
-            type="text"
-            id="descricao"
-            name="descricao"
-            value={formData.descricao}
-            onChange={handleChange}
-          />
-          <label htmlFor="descricao">Descrição do Livro</label>
-        </div>
-        <div className="areaForm">
-          <input
-            type="text"
-            id="autor"
-            name="autor"
-            value={formData.autor}
-            onChange={handleChange}
-          />
-          <label htmlFor="descricao">Nome do Autor</label>
-        </div>
-        <div className="areaFormRadio">
-          <span>Escolha uma categoria:</span>
-          <div>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="romance"
-                checked={formData.categoria === "romance"}
-                onChange={handleChange}
-              />
-              <p>Romance</p>
-            </label>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="psicologia"
-                checked={formData.categoria === "psicologia"}
-                onChange={handleChange}
-              />
-              <p>Psicologia</p>
-            </label>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="suspense"
-                checked={formData.categoria === "suspense"}
-                onChange={handleChange}
-              />
-              <p>Suspense</p>
-            </label>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="biografias"
-                checked={formData.categoria === "biografias"}
-                onChange={handleChange}
-              />
-              <p>Biografias e Memórias</p>
-            </label>
+        <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
+          <div className="areaForm">
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              value={formData.nome}
+              onChange={handleChange}
+            />
+            <label htmlFor="nome">Nome do Livro</label>
           </div>
-        </div>
-        <button type="submit" disabled={!formValid || isFormSubmit}>
-          Enviar
-        </button>
-      </form>
+          <div className="areaForm">
+            <input
+              type="url"
+              id="imagem"
+              name="imagem"
+              value={formData.foto}
+              onChange={handleChange}
+            />
+            <label htmlFor="imagem">Insira o Link da Imagem</label>
+          </div>
+          <div className="areaForm">
+            <input
+              type="text"
+              id="preco"
+              name="preco"
+              value={formData.preco}
+              onChange={handleChange}
+            />
+            <label htmlFor="preco">Informe o Preço</label>
+          </div>
+          <div className="areaForm">
+            <input
+              type="text"
+              id="descricao"
+              name="descricao"
+              value={formData.descricao}
+              onChange={handleChange}
+            />
+            <label htmlFor="descricao">Descrição do Livro</label>
+          </div>
+          <div className="areaForm">
+            <input
+              type="text"
+              id="autor"
+              name="autor"
+              value={formData.autor}
+              onChange={handleChange}
+            />
+            <label htmlFor="descricao">Nome do Autor</label>
+          </div>
+          <div className="areaFormRadio">
+            <span>Escolha uma categoria:</span>
+            <div>
+              <label className="radio">
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="romance"
+                  checked={formData.categoria === "romance"}
+                  onChange={handleChange}
+                />
+                <p>Romance</p>
+              </label>
+              <label className="radio">
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="psicologia"
+                  checked={formData.categoria === "psicologia"}
+                  onChange={handleChange}
+                />
+                <p>Psicologia</p>
+              </label>
+              <label className="radio">
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="suspense"
+                  checked={formData.categoria === "suspense"}
+                  onChange={handleChange}
+                />
+                <p>Suspense</p>
+              </label>
+              <label className="radio">
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="biografias"
+                  checked={formData.categoria === "biografias"}
+                  onChange={handleChange}
+                />
+                <p>Biografias e Memórias</p>
+              </label>
+            </div>
+          </div>
+          <button type="submit" disabled={!formValid || isFormSubmit}>
+            Enviar
+          </button>
+        </form>
       </C.Form>
+      <br></br>
+      <br></br>
+      <div className="reset">
+        <a href="#">Voltar para o painel administrativo</a>
+      </div>
     </C.Container>
   );
 };

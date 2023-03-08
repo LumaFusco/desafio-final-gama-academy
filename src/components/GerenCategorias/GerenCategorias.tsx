@@ -1,6 +1,5 @@
 import * as C from './GerenCategorias.style'
 import Table from 'react-bootstrap/Table'
-import imageBook from '../../assets/images/A Morte É Um Dia Que Vale A Pena Viver.jpg'
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
