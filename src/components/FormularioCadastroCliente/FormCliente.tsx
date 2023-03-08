@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as C from "./FormCategoria.style";
+import * as C from "./FormCliente.style";
 
 const Formulario = () => {
   const [isFormSubmit, setIsformSubmit] = useState(false);
@@ -58,22 +58,59 @@ const Formulario = () => {
 
   return (
     <C.Container>
-      <C.Form>
-        <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
-          <div className="areaForm">
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              value={formData.nome}
-              onChange={handleChange}
-            />
-            <label htmlFor="nome">Nome da Categoria</label>
-          </div>
-        </form>
+    <C.Form>
+      <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
+        <div className="areaForm">
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            value={formData.nome}
+            onChange={handleChange}
+          />
+          <label htmlFor="nome">Nome Completo</label>
+        </div>
+        <div className="areaForm">
+          <input
+            type="url"
+            id="imagem"
+            name="imagem"
+            value={formData.foto}
+            onChange={handleChange}
+          />
+          <label htmlFor="imagem">Email</label>
+        </div>
+        <div className="areaForm">
+          <input
+            type="text"
+            id="preco"
+            name="preco"
+            value={formData.preco}
+            onChange={handleChange}
+          />
+          <label htmlFor="preco">Senha</label>
+        </div>
+        
+        
+        <div className="areaFormRadio">
+          <span>Você confirma que esse registro é de um cliente?</span>
+          <div>
+            <label className="radio">
+              <input
+                type="radio"
+                name="categoria"
+                value="romance"
+                checked={formData.categoria === "romance"}
+                onChange={handleChange}
+              />
+              <p>Sim</p>
+            </label>
+                  </div>
+        </div>
         <button type="submit" disabled={!formValid || isFormSubmit}>
           Enviar
         </button>
+      </form>
       </C.Form>
       <br></br>
       <br></br>
