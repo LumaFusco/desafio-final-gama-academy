@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as C from "./FormLivro.style";
+import * as C from "./FormCliente.style";
 
 const Formulario = () => {
   const [isFormSubmit, setIsformSubmit] = useState(false);
@@ -58,7 +58,7 @@ const Formulario = () => {
 
   return (
     <C.Container>
-      <C.Form>
+    <C.Form>
       <form onSubmit={handleSubmit} className='container-lg, container-sm, container-sm'>
         <div className="areaForm">
           <input
@@ -68,7 +68,7 @@ const Formulario = () => {
             value={formData.nome}
             onChange={handleChange}
           />
-          <label htmlFor="nome">Nome do Livro</label>
+          <label htmlFor="nome">Nome Completo</label>
         </div>
         <div className="areaForm">
           <input
@@ -78,7 +78,7 @@ const Formulario = () => {
             value={formData.foto}
             onChange={handleChange}
           />
-          <label htmlFor="imagem">Insira o Link da Imagem</label>
+          <label htmlFor="imagem">Email</label>
         </div>
         <div className="areaForm">
           <input
@@ -88,30 +88,12 @@ const Formulario = () => {
             value={formData.preco}
             onChange={handleChange}
           />
-          <label htmlFor="preco">Informe o Preço</label>
+          <label htmlFor="preco">Senha</label>
         </div>
-        <div className="areaForm">
-          <input
-            type="text"
-            id="descricao"
-            name="descricao"
-            value={formData.descricao}
-            onChange={handleChange}
-          />
-          <label htmlFor="descricao">Descrição do Livro</label>
-        </div>
-        <div className="areaForm">
-          <input
-            type="text"
-            id="autor"
-            name="autor"
-            value={formData.autor}
-            onChange={handleChange}
-          />
-          <label htmlFor="descricao">Nome do Autor</label>
-        </div>
+        
+        
         <div className="areaFormRadio">
-          <span>Escolha uma categoria:</span>
+          <span>Você confirma que esse registro é de um cliente?</span>
           <div>
             <label className="radio">
               <input
@@ -121,46 +103,22 @@ const Formulario = () => {
                 checked={formData.categoria === "romance"}
                 onChange={handleChange}
               />
-              <p>Romance</p>
+              <p>Sim</p>
             </label>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="psicologia"
-                checked={formData.categoria === "psicologia"}
-                onChange={handleChange}
-              />
-              <p>Psicologia</p>
-            </label>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="suspense"
-                checked={formData.categoria === "suspense"}
-                onChange={handleChange}
-              />
-              <p>Suspense</p>
-            </label>
-            <label className="radio">
-              <input
-                type="radio"
-                name="categoria"
-                value="biografias"
-                checked={formData.categoria === "biografias"}
-                onChange={handleChange}
-              />
-              <p>Biografias e Memórias</p>
-            </label>
-          </div>
+                  </div>
         </div>
         <button type="submit" disabled={!formValid || isFormSubmit}>
           Enviar
         </button>
       </form>
       </C.Form>
+      <br></br>
+      <br></br>
+      <div className="reset">
+        <a href="#">Voltar para o painel administrativo</a>
+      </div>
     </C.Container>
+
   );
 };
 

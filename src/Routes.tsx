@@ -9,6 +9,15 @@ import Sucesso from './pages/Sucesso'
 import { CadastroLivro } from './pages/CadastroNovoLivro/CadastroLivro'
 import AttProfile from './pages/AtualizaPerfil/index'
 import AttSenha from './pages/AtualizaSenha'
+import PainelAdministrativo from './pages/PainelAdministrativo'
+import GerenCategorias from './components/GerenCategorias/GerenCategorias'
+import GerenClientes from './components/GerenClientes/GerenClientes'
+import GerenPedidos from './components/GerenPedidos/GerenPedidos'
+import GerenLivros from './components/GerenLivros/GerenLivros'
+import { CadastroCategoria } from './pages/CadastroNovaCategoria/CadastroCategoria'
+import { CadastroCliente } from './pages/CadastroNovoCliente/CadastroCliente'
+import { CadastroPedido } from './pages/CadastroNovoPedido/CadastroPedido'
+
 
 
 export default function Routes() {
@@ -20,11 +29,19 @@ export default function Routes() {
         <Route path="/livros" element={<Livros />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<CadastroLivro />} />
+        <Route path="/cadastro-livro" element={<CadastroLivro />} />
+        <Route path="/cadastro-categoria" element={<CadastroCategoria />} />
+        <Route path="/cadastro-cliente" element={<CadastroCliente />} />
+        <Route path="/cadastro-pedido" element={<CadastroPedido />} />
+        <Route path="/gerenciamento-categoria" element={<GerenCategorias />} />
+        <Route path="/gerenciamento-cliente" element={<GerenClientes />} />
+        <Route path="/gerenciamento-pedidos" element={<GerenPedidos />} />
+        <Route path="/gerenciamento-livros" element={<GerenLivros />} />
         <Route path="/atualizar-perfil" element={<AttProfile />} />
         <Route path="/atualizar-senha" element={<AttSenha />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
+        <Route path="/painel-administrativo" element={<PainelAdministrativo />} />
       </WrapperRoutes>
     </BrowserRouter>
   )

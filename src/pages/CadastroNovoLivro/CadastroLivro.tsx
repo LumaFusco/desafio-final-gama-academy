@@ -1,16 +1,12 @@
-import Header from "../../components/Header";
-import Footer from "../../components/footer/Footer";
-import Formulario from '../../components/FormularioCadastro/FormLivro'
+import Formulario from '../../components/FormularioCadastroLivro/FormLivro'
 import { Title } from "../../components/Title/title";
 
 
 export const CadastroLivro = () => {
-    return(
+    return (
         <div>
-            <Header />
-            <Title titleText="Cadastrar Novo Livro"/>
+            <Title titleText="Cadastrar Novo Livro" />
             <Formulario />
-            <Footer />
         </div>
     )
 }

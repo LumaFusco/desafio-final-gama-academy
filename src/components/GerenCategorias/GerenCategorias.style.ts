@@ -7,6 +7,12 @@ padding-left:50px;
 .titulo{
     margin-bottom: 20px;
 }
+
+.button-nova-categoria{
+    margin-bottom:20px;
+    margin-bottom:20px;
+}
+
 .tabelaPedido{
     max-width: 95%;
     margin-bottom: 250px;
@@ -24,18 +30,14 @@ padding-left:50px;
     height: 30px;
     padding: 5px;
 }
-input[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;
-    
-}
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
 
-}
-.imageBook{
-    max-width: 90px;
-}
+.reset{    
+        font-weight: 600;
+        font-size: 16px;
+        line-height:19px;
+        color: #000000;
+    }
+
 @media all and (max-width: 822px ){
    .tabelaPedido tbody tr td{
         display:block;
@@ -58,9 +60,5 @@ input[type=number] {
     border: 1px solid #dad6eb;
    }
 };
-@media all and (max-width: 453px ){
-    .tabelaPedido tbody tr td{
-        
-    }
-};
+
   `;
