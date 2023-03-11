@@ -1,6 +1,6 @@
-import API_BASE from "./config";
+import { setupAPIClient } from "./config"
 
 
 export function listarCategorias () {
-    return API_BASE.get('/categoria')
+    return setupAPIClient().get('/categoria')
 }

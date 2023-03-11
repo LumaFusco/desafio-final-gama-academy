@@ -99,20 +99,6 @@ export const Container = style.div`
         text-decoration: underline;
     }
     
-    .formLogin form .footerForm{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
-    }
-
-    .formLogin form .footerForm p{
-        font-weight: 600;
-        font-size: 16px;
-        line-height:19px;
-        color: #000000;
-    }
-
     @media (max-width: 768px){
         margin: auto
        max-width: 80%;

@@ -5,53 +5,56 @@ import {
   useState,
   ButtonHTMLAttributes,
 } from 'react'
-import { Link } from 'react-router-dom'
+
 import { AuthContext } from '../../contexts/AuthContext'
 import { ButtonLogin } from '../ButtonLogin'
-import * as C from '../../components/FormularioLogin/login.style'
-import { data } from 'jquery'
+import * as C from './cadastro.styles'
 
-function Login() {
-  const { loginIn } = useContext(AuthContext)
+function SignUp() {
+  const { signUp } = useContext(AuthContext)
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
 
   const [loading, setLoading] = useState(false)
 
- 
-  
-
- 
-  
-  async function handleLogin(event: FormEvent) {
+  async function handleSignUp(event: FormEvent) {
     event.preventDefault()
 
-    if (email === '' || senha === '') {
-      alert('PREENCHA COM SEUS DADOS PARA PODER LOGAR')
+    if (nome === ' ' || email === '' || senha === '') {
+      alert('PRENCHA TODOS OS CAMPOS')
       return
     }
-
     setLoading(true)
 
     let data = {
+      nome,
       email,
       senha,
     }
+    await signUp(data)
 
-    await loginIn(data)
-
-    setLoading(false)
+    setLoading(false);
   }
- 
+
   return (
     <C.Container>
-      
       <div className="formLogin">
         <div className="headerLogin">
-          <span>FAÇA SEU LOGIN!</span>
+          <span>FAÇA SEU CADASTRO!</span>
         </div>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignUp}>
+          <div className="inputContainer">
+            <label htmlFor="name">Nome:</label>
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              placeholder="Digite seu nome:"
+            />
+          </div>
           <div className="inputContainer">
             <label htmlFor="email">E-mail:</label>
             <input
@@ -78,15 +81,9 @@ function Login() {
           <ButtonLogin type="submit" loading={loading}>
             Entrar
           </ButtonLogin>
-
-          <div className="footerForm">
-            <p>AINDA NÃO TEM UMA CONTA? </p>
-            <Link to="/cadastro-usuario">CLIQUE AQUI E CADASTRE-SE</Link>
-          </div>
         </form>
       </div>
     </C.Container>
   )
 }
-
-export default Login
+export default SignUp

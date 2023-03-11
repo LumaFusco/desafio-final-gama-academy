@@ -9,13 +9,14 @@ import Sucesso from './pages/Sucesso'
 import { CadastroLivro } from './pages/CadastroNovoLivro/CadastroLivro'
 import AttProfile from './pages/AtualizaPerfil/index'
 import AttSenha from './pages/AtualizaSenha'
-
+import PageCadastroUsuario from './pages/CadastroUsuario'
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <WrapperRoutes>
         <Route path="/" element={<Home />} />
+        <Route path="/cadastro-usuario" element={<PageCadastroUsuario />} />
         <Route path="/livro" element={<Livro />} />
         <Route path="/livros" element={<Livros />} />
         <Route path="/carrinho" element={<Carrinho />} />

@@ -1,6 +1,6 @@
-import API_BASE from "./config";
+import { setupAPIClient } from "./config"
 
 
 export function listarLivros () {
-    return API_BASE.get('/livro')
+    return setupAPIClient().get('/livro')
 }
