@@ -5,7 +5,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* height: 72vh; */
     max-width: 1320px;
     padding: 10px;
     margin: 0 auto;
@@ -21,5 +20,14 @@ export const Container = styled.div`
     font-weight: 400;
     max-width: 45%;
     color: #979797;
+  }
+
+  .botaoVoltar {
+    margin-top: 20px;
+    background-color: #00796b;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
   }
 `;

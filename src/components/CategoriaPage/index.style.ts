@@ -46,7 +46,6 @@ export const Container = styled.div`
       border-radius: 6px;
     }
   }
-
   @media (max-width: 768px) {
     .container {
       display: grid;
@@ -54,7 +53,7 @@ export const Container = styled.div`
       flex-direction: column;
       background-color: #f1f1f1;
       border: none;
-      margin: auto;
+      margin: 100px auto;
       justify-content: center;
     }
   }

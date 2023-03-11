@@ -17,8 +17,7 @@ import GerenLivros from './components/GerenLivros/GerenLivros'
 import { CadastroCategoria } from './pages/CadastroNovaCategoria/CadastroCategoria'
 import { CadastroCliente } from './pages/CadastroNovoCliente/CadastroCliente'
 import { CadastroPedido } from './pages/CadastroNovoPedido/CadastroPedido'
-
-
+import LivrosCategoria from './pages/LivrosCategoria'
 
 export default function Routes() {
   return (
@@ -42,6 +41,7 @@ export default function Routes() {
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
         <Route path="/painel-administrativo" element={<PainelAdministrativo />} />
+        <Route path="Livro/categoria/:id" element={<LivrosCategoria />} />
       </WrapperRoutes>
     </BrowserRouter>
   )
