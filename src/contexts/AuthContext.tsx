@@ -2,6 +2,9 @@ import { createContext, ReactNode, useState } from 'react'
 import { api } from '../Services/MainApi/config/apiClient'
 import { destroyCookie, setCookie, parseCookies } from 'nookies'
 
+
+
+
 type AuthContextData = {
   user: UserProps | any
   isAuthenticated: boolean
@@ -36,7 +39,8 @@ export const AuthContext = createContext({} as AuthContextData)
 export function loginOut() {
   try {
     destroyCookie(undefined, '@tealbook.token')
-  } catch {
+   
+    } catch {
     console.log('erro ao deslogar')
   }
 }
