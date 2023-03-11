@@ -10,6 +10,7 @@ import { AuthContext } from '../../contexts/AuthContext'
 import { ButtonLogin } from '../ButtonLogin'
 import * as C from '../../components/FormularioLogin/login.style'
 import { data } from 'jquery'
+import{toast} from 'react-toastify'
 
 function Login() {
   const { loginIn } = useContext(AuthContext)
@@ -19,16 +20,12 @@ function Login() {
 
   const [loading, setLoading] = useState(false)
 
- 
-  
-
- 
   
   async function handleLogin(event: FormEvent) {
     event.preventDefault()
 
     if (email === '' || senha === '') {
-      alert('PREENCHA COM SEUS DADOS PARA PODER LOGAR')
+      toast.error('PREENCHA TODOS OS CAMPOS!')
       return
     }
 

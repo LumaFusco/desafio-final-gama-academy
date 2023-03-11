@@ -9,6 +9,8 @@ import {
 import { AuthContext } from '../../contexts/AuthContext'
 import { ButtonLogin } from '../ButtonLogin'
 import * as C from './cadastro.styles'
+import { toast } from 'react-toastify'
+
 
 function SignUp() {
   const { signUp } = useContext(AuthContext)
@@ -22,7 +24,7 @@ function SignUp() {
     event.preventDefault()
 
     if (nome === ' ' || email === '' || senha === '') {
-      alert('PRENCHA TODOS OS CAMPOS')
+      toast.error('PRENCHA TODOS OS CAMPOS!')
       return
     }
     setLoading(true)

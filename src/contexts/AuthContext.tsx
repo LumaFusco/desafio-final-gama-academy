@@ -1,9 +1,7 @@
 import { createContext, ReactNode, useState } from 'react'
 import { api } from '../Services/MainApi/config/apiClient'
 import { destroyCookie, setCookie, parseCookies } from 'nookies'
-
-
-
+import { toast } from 'react-toastify'
 
 type AuthContextData = {
   user: UserProps | any
@@ -39,8 +37,7 @@ export const AuthContext = createContext({} as AuthContextData)
 export function loginOut() {
   try {
     destroyCookie(undefined, '@tealbook.token')
-   
-    } catch {
+  } catch {
     console.log('erro ao deslogar')
   }
 }
@@ -71,8 +68,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // Passar para as proximas requisições o nosso token
       api.defaults.headers['Authorization'] = `Headers ${token}`
 
+      toast.success('Logado com sucesso!')
+
       // Redirecionar o user para ultimos pedidos
     } catch (error) {
+      toast.error('Erro ao acessar!')
       console.log('ERRO AO ACESSAR', error)
     }
   }
@@ -84,9 +84,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         email,
         senha,
       })
-      console.log("CADASTRADO COM SUCESSO!")
-      
+      toast.success('Cadastrado com sucesso!')
     } catch (err) {
+      toast.error('Email ou senha inválidos!')
       console.log('erro ao cadastrar', err)
     }
   }
