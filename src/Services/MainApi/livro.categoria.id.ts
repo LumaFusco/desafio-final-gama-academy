@@ -1,5 +1,5 @@
-import API_BASE from "./config";
+import { setupAPIClient } from "./config"
 
 export function livrosCategoria(id: string) {
-  return API_BASE.get(`/livro/categoria/${id}`);
+  return setupAPIClient().get(`/livro/categoria/${id}`);
 }

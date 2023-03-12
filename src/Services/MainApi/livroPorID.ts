@@ -1,5 +1,5 @@
-import API_BASE from "./config";
+import { setupAPIClient } from "./config"
 
 export function LivroID(id: string) {
-  return API_BASE.get(`/livro/${id}`);
+  return setupAPIClient().get(`/livro/${id}`);
 }
