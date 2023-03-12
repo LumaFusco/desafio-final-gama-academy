@@ -3,6 +3,10 @@ import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { livrosCategoria } from "../../Services/MainApi/livro.categoria.id";
 import * as C from "./index.style";
+import { Link, Link as LinkRoute } from "react-router-dom";
+import { LivroButton } from "../ButtonLivro";
+
+
 
 interface Livro {
   _id: string;
@@ -52,10 +56,8 @@ function CategoriaPage() {
               <li className="list-group-item"><span className="index">Preço: R$:</span> {Livro.preco}</li>
             </ul>
             <div className="card-body links">
-              <a href="#" className="card-link">
-                Ver Livro
-              </a>
-              <a href="#" className="card-link">
+            <LinkRoute to={`/Livros/Livro/${Livro._id}`}><LivroButton livroId={Livro._id}/></LinkRoute> 
+              <a href="#" className="card-link link">
                 Adicionar ao Carrinho
               </a>
             </div>

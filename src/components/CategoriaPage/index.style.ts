@@ -36,11 +36,11 @@ export const Container = styled.div`
   .links {
     text-align: center;
 
-    & a {
+    &  .link{
       text-decoration: none;
       font-size: 13px;
       color: #FFF;
-      padding: 3px;
+      padding: 5px 3px;
       border: 1px solid #ccc;
       border-radius: 6px;
       background-color: #00796b;
