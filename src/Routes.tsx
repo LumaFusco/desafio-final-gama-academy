@@ -18,6 +18,8 @@ import { CadastroCategoria } from './pages/CadastroNovaCategoria/CadastroCategor
 import { CadastroCliente } from './pages/CadastroNovoCliente/CadastroCliente'
 import { CadastroPedido } from './pages/CadastroNovoPedido/CadastroPedido'
 import LivrosCategoria from './pages/LivrosCategoria'
+import PageCadastroUsuario from './pages/CadastroUsuario'
+
 
 export default function Routes() {
   return (
@@ -25,6 +27,7 @@ export default function Routes() {
       <WrapperRoutes>
         <Route path="/" element={<Home />} />
         <Route path="/Livros/livro/:id" element={<Livro />} />
+        <Route path="/cadastro-usuario" element={<PageCadastroUsuario />} />
         <Route path="/livros" element={<Livros />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />

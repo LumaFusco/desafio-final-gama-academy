@@ -1,5 +1,5 @@
-import API_BASE from "./config";
+import { setupAPIClient } from "./config"
 
 export function carrinhoDeCompras () {
-    return API_BASE.get('/carrinho')
+    return setupAPIClient().get('/carrinho')
 }
