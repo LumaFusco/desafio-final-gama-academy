@@ -23,7 +23,7 @@ export const Container = styled.div`
   ul li {
     background-color: #f1f1f1;
     margin: auto;
-    text-align: center;
+    text-align: start;
     border: none;
   }
   .container {
@@ -37,14 +37,19 @@ export const Container = styled.div`
   .links {
     text-align: center;
 
-    & a {
+    &  .link {
       text-decoration: none;
       font-size: 13px;
-      color: #000;
-      padding: 3px;
+      color: #FFF;
+      padding: 5px 3px;
       border: 1px solid #ccc;
       border-radius: 6px;
+      background-color: #00796b;
     }
+  }
+  .index{
+    font-weight: 600;
+    
   }
 
   @media (max-width: 768px) {

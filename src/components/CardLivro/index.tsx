@@ -2,6 +2,8 @@ import { Card } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { listarLivros } from "../../Services/MainApi/livros";
 import * as C from './index.style';
+import { LivroButton } from "../ButtonLivro";
+import { Link, Link as LinkRoute } from "react-router-dom";
 
 interface Livro {
     _id: string;
@@ -42,13 +44,14 @@ export function CardLivro () {
             <h5 className="card-title">{Livro.nome}</h5>
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item"><span>Autor: </span>{Livro.autor}</li>
-            <li className="list-group-item"><span>Categoria: </span>{Livro.categoria.nome}</li>
-            <li className="list-group-item">Preço: R$: {Livro.preco}</li>
+            <li className="list-group-item"><span className="index">Autor: </span>{Livro.autor}</li>
+            <li className="list-group-item"><span className="index">Categoria: </span>{Livro.categoria.nome}</li>
+            <li className="list-group-item"><span className="index">Preço: R$:</span> {Livro.preco}</li>
           </ul>
           <div className="card-body links">
-            <a href="#" className="card-link">Ver Livro</a>
-            <a href="#" className="card-link">Adicionar ao Carrinho</a>
+            
+            <LinkRoute to={`Livro/${Livro._id}`}><LivroButton livroId={Livro._id}/></LinkRoute> 
+            <a href="#" className="card-link link">Adicionar ao Carrinho</a>
           </div>
         </div>
         

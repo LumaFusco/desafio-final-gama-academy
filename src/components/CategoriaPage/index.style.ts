@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   .card {
     background-color: #f1f1f1;
-
     margin: 10px;
     margin-bottom: 40px;
     border: 1px solid #ccc;
@@ -40,11 +39,15 @@ export const Container = styled.div`
     & a {
       text-decoration: none;
       font-size: 13px;
-      color: #000;
+      color: #FFF;
       padding: 3px;
       border: 1px solid #ccc;
       border-radius: 6px;
+      background-color: #00796b;
     }
+  }
+  .index{
+    font-weight: 600;
   }
   @media (max-width: 768px) {
     .container {

@@ -7,21 +7,58 @@ import Col from 'react-bootstrap/Col'
 import imageBook from '../../assets/images/A Morte É Um Dia Que Vale A Pena Viver.jpg'
 import * as C from './livro.style'
 import Button from 'react-bootstrap/Button'
+import { LivroID } from '../../Services/MainApi/livroPorID'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
+interface LivroPID {
+  _id: string;
+  nome: string;
+  foto: string;
+  preco: string;
+  descricao: string;
+  autor: string;
+};
+
 
 export default function Livro() {
+const {id} = useParams<{ id: string }>();
+const [livro, setLivro] = useState<LivroPID>({
+  _id: "",
+  nome: "",
+  foto: "",
+  preco: "",
+  descricao: "",
+  autor: ""
+});
+
+useEffect(() => {
+  const getLivro = async () => {
+    try {
+      const response = await LivroID(id || "");
+      setLivro(response.data)
+      console.log(response.data)
+    } catch (error){
+      console.error(error)
+    }
+  };
+  getLivro()
+}, [id])
+
   return (
-    <div>
-      <header>
+
+      <div>
         <Header />
-      </header>
+      
       <main>
         <Container>
           <Row>
             <Col>
               <C.Container>
+                
                 <div className="boxImagem">
                   <img
-                    src={imageBook}
+                    src={livro.foto}
                     alt="foto capa livro"
                     className="imageBook"
                   />
@@ -30,10 +67,10 @@ export default function Livro() {
             </Col>
             <Col>
               <Descricao
-                bookTitle="A Morte É Um Dia Que Vale A Pena"
-                bookDescription="Sobre a arte de ganhar existem muitas lições, mas e sobre a arte de perder? Ninguém quer falar a respeito disso, mas a verdade é que passamos muito tempo da vida em grande sofrimento quando perdemos bens, pessoas, realidades, sonhos. Saber perder é a arte de quem conseguiu viver plenamente o que ganhou um dia."
-                bookAuthor="Arantes, Ana Claudia Quintana"
-                bookPrice="R$69,90"
+                bookTitle={livro.nome}
+                bookDescription={livro.descricao}
+                bookAuthor={livro.autor}
+                bookPrice={livro.preco}
               />
               <div className="d-grid gap-3">
                 <Button variant="secondary" size="sm">
@@ -44,9 +81,9 @@ export default function Livro() {
           </Row>
         </Container>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+    <footer>
+      <Footer />
+    </footer>
     </div>
   )
 }

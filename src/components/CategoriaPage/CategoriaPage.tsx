@@ -42,14 +42,14 @@ function CategoriaPage() {
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <span>Autor: </span>
+                <span className="index">Autor: </span>
                 {Livro.autor}
               </li>
               <li className="list-group-item">
-                <span>Categoria: </span>
+                <span className="index">Categoria: </span>
                 {Livro.categoria.nome}
               </li>
-              <li className="list-group-item">Preço: R$: {Livro.preco}</li>
+              <li className="list-group-item"><span className="index">Preço: R$:</span> {Livro.preco}</li>
             </ul>
             <div className="card-body links">
               <a href="#" className="card-link">

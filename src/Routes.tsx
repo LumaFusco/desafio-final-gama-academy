@@ -24,7 +24,7 @@ export default function Routes() {
     <BrowserRouter>
       <WrapperRoutes>
         <Route path="/" element={<Home />} />
-        <Route path="/livro" element={<Livro />} />
+        <Route path="/Livros/livro/:id" element={<Livro />} />
         <Route path="/livros" element={<Livros />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />

@@ -30,4 +30,6 @@ export const Container = styled.div`
     border: none;
     border-radius: 6px;
   }
+
+
 `;
