@@ -53,8 +53,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         senha,
       })
       console.log(response.data)
-      const { id, nome, token } = response.data
-      setCookie(undefined, '@tealbook.token', token, {
+      const { id, nome } = response.data
+      setCookie(undefined, '@tealbook.token', response.data, {
         maxAge: 60 * 60, // Expirar em 1 hora
         path: '/', // Quais caminhos terão acesso ao cookie
       })
@@ -64,9 +64,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         nome,
         email,
       })
-
+      const cookie = parseCookies()
       // Passar para as proximas requisições o nosso token
-      api.defaults.headers['Authorization'] = `Headers ${token}`
+      api.defaults.headers['Authorization'] = `Headers ${response.data}`
 
       toast.success('Logado com sucesso!')
 
