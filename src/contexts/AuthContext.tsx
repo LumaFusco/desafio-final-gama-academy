@@ -1,7 +1,8 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useState, useContext, useEffect } from 'react'
 import { api } from '../Services/MainApi/config/apiClient'
 import { destroyCookie, setCookie, parseCookies } from 'nookies'
 import { toast } from 'react-toastify'
+
 
 type AuthContextData = {
   user: UserProps | any
@@ -46,7 +47,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>()
   const isAuthenticated = !!user
 
-  async function loginIn({ email, senha }: SignInProps) {
+  async function loginIn({ email, senha, }: SignInProps) {
     try {
       const response = await api.post('/login', {
         email,
@@ -56,7 +57,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const { id, nome, token } = response.data
       setCookie(undefined, '@tealbook.token', token, {
         maxAge: 60 * 60, // Expirar em 1 hora
-        path: '/', // Quais caminhos terão acesso ao cookie
+        path: "/", // Quais caminhos terão acesso ao cookie
       })
 
       setUser({
@@ -66,13 +67,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
       })
 
       // Passar para as proximas requisições o nosso token
-      api.defaults.headers['Authorization'] = `Headers ${token}`
-
-      toast.success('Logado com sucesso!')
-
-      // Redirecionar o user para ultimos pedidos
+     
+      api.defaults.headers['Authorization'] = `header ${token}`
+      toast.success('LOGADO COM SUCESSO!')   
+           
+          
     } catch (error) {
-      toast.error('Erro ao acessar!')
+      toast.error('EMAIL OU SENHA INVÁLIDOS!!')
       console.log('ERRO AO ACESSAR', error)
     }
   }
@@ -84,13 +85,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
         email,
         senha,
       })
-      toast.success('Cadastrado com sucesso!')
+      toast.success('CADASTRADO COM SUCESSO!')
+      window.location.href = '/'
     } catch (err) {
-      toast.error('Email ou senha inválidos!')
+      toast.error('ERRO AO CADASTRAR!')
       console.log('erro ao cadastrar', err)
     }
   }
-
+  
   return (
     <AuthContext.Provider
       value={{ user, isAuthenticated, loginIn, loginOut, signUp }}

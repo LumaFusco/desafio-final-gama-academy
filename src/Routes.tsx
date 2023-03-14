@@ -19,7 +19,7 @@ import { CadastroCliente } from './pages/CadastroNovoCliente/CadastroCliente'
 import { CadastroPedido } from './pages/CadastroNovoPedido/CadastroPedido'
 import LivrosCategoria from './pages/LivrosCategoria'
 import PageCadastroUsuario from './pages/CadastroUsuario'
-
+import { RequireAuth } from './contexts/RequireAuth'
 
 export default function Routes() {
   return (
@@ -43,11 +43,16 @@ export default function Routes() {
         <Route path="/atualizar-senha" element={<AttSenha />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
-        <Route path="/painel-administrativo" element={<PainelAdministrativo />} />
+        <Route
+          path="/painel-administrativo"
+          element={
+            <RequireAuth>
+              <PainelAdministrativo />
+            </RequireAuth>
+          }
+        />
         <Route path="Livro/categoria/:id" element={<LivrosCategoria />} />
       </WrapperRoutes>
     </BrowserRouter>
   )
 }
-
-
