@@ -21,6 +21,7 @@ import idRequestError from "../middlewares/idResquestError";
 const routes = Router();
 
 routes.post("/login", validationLogin, authController.login)
+routes.post("/login/admin", authValidation, validationLogin, isAdminError, authController.login)
 routes.put("/login/senha/:id", authValidation, idRequestError, newSenha.update);
 
 routes.post("/usuario", validationUsuario, usuarioController.create);
