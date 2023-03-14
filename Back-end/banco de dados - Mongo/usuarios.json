@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "63f9125e31a19b369b0e7077"
+  },
+  "nome": "ADMIN",
+  "email": "admin@email.com",
+  "senha": "$2b$10$TEvoSK0AcmkCs4.rTfeVv.nh7bN6CaGm.R8O/SUGpDys0ff3sOpYm",
+  "isAdmin": true,
+  "createdAt": {
+    "$date": "2023-02-24T19:39:10.792Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:21:47.473Z"
+  },
+  "__v": 0
+}]
