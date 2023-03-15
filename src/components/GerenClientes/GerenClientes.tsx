@@ -5,6 +5,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
+import { Link, Link as LinkRoute } from "react-router-dom";
 
 export default function GerenClientes() {
   return (
@@ -19,7 +20,7 @@ export default function GerenClientes() {
                 <Col></Col>
                 <Col xs={6}></Col>
                 <Col>
-                  <Button variant="success">Novo Cliente</Button>{' '}
+                <Button variant="success"><LinkRoute to="/cadastro-cliente">Novo Cliente</LinkRoute></Button>{' '}
                 </Col>
               </Row>
             </Container>
@@ -58,7 +59,7 @@ export default function GerenClientes() {
             </tbody>
           </Table>
           <div>
-            <a  className="reset" href="#">Voltar para o painel administrativo</a>
+          <LinkRoute to="/painel-administrativo">Voltar para o painel administrativo</LinkRoute>
           </div>
         </C.Container>
       </main>

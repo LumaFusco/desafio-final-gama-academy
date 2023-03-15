@@ -1,4 +1,5 @@
 import * as C from '../FormularioAtualizaPerfil/atualizaperfil.style'
+import { Link, Link as LinkRoute } from "react-router-dom";
 
 function AtualizaPerfil() {
   return (
@@ -37,7 +38,7 @@ function AtualizaPerfil() {
 
           <div className="reset">
             <p>Deseja alterar sua senha?</p>
-            <a href="#">Clique aqui!</a>
+            <LinkRoute to="/atualizar-senha">Clique Aqui!</LinkRoute>
           </div>
 
 

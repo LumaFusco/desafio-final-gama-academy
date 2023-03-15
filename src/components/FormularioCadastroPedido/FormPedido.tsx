@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as C from "./FormPedido.style";
+import { Link, Link as LinkRoute } from "react-router-dom";
 
 const Formulario = () => {
   const [isFormSubmit, setIsformSubmit] = useState(false);
@@ -101,7 +102,7 @@ const Formulario = () => {
       <br></br>
       <br></br>
       <div className="reset">
-        <a href="#">Voltar para o painel administrativo</a>
+      <LinkRoute to="/painel-administrativo">Voltar para o painel administrativo</LinkRoute>
       </div>
     </C.Container>
 

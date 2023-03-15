@@ -5,6 +5,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
+import { Link, Link as LinkRoute } from "react-router-dom";
 
 export default function GerenPedidos() {
   return (
@@ -19,7 +20,7 @@ export default function GerenPedidos() {
                   <Col></Col>
                   <Col xs={6}></Col>
                   <Col>
-                    <Button variant="success">Novo Pedido</Button>{' '}
+                  <Button variant="success"><LinkRoute to="/cadastro-pedido">Novo Pedido</LinkRoute></Button>{' '}
                   </Col>
                 </Row>
               </Container>
@@ -54,7 +55,7 @@ export default function GerenPedidos() {
             </tbody>
           </Table>
           <div>
-            <a className="reset" href="#">Voltar para o painel administrativo</a>
+          <LinkRoute to="/painel-administrativo">Voltar para o painel administrativo</LinkRoute>
           </div>
         </C.Container>
       </main>
