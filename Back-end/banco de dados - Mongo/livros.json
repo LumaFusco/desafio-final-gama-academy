@@ -1,0 +1,153 @@
+[{
+  "_id": {
+    "$oid": "6410fdc713e45fa501f2c21c"
+  },
+  "nome": "Mindset A Nova Psicologia Do Sucesso",
+  "foto": "imagem",
+  "preco": 51.9,
+  "descricao": "Carol S. Dweck, professora de psicologia na Universidade Stanford e especialista internacional em sucesso e motivação, desenvolveu, ao longo de décadas de pesquisa, um conceito fundamental: a atitude mental com que encaramos a vida, que ela chama de 'mindset', é crucial para o sucesso. Dweck revela de forma brilhante como o sucesso pode ser alcançado pela maneira como lidamos com nossos objetivos. O mindset não é um mero traço de personalidade, é a explicação de por que somos otimistas ou pessimistas, bem-sucedidos ou não. Ele define nossa relação com o trabalho e com as pessoas e a maneira como educamos nossos filhos. É um fator decisivo para que todo o nosso potencial seja explorado.",
+  "categoria": {
+    "$oid": "6410fcc913e45fa501f2c20c"
+  },
+  "autor": "Dweck, Carol S.",
+  "createdAt": {
+    "$date": "2023-03-14T23:05:43.047Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:05:43.047Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410fe6513e45fa501f2c220"
+  },
+  "nome": "Corpo Fala",
+  "foto": "imagem",
+  "preco": 60,
+  "descricao": "O livro tenta desvendar a comunicação não-verbal do corpo humano, primeiramente analisando os princípios subterrâneos que regem e conduzem o corpo. A partir desses princípios aparecem as expressões, gestos e atos corporais que, de modos característicos estilizados ou inovadores, expressam sentimentos, concepções, ou posicionamentos internos. Acompanham 350 ilustrações",
+  "categoria": {
+    "$oid": "6410fcc913e45fa501f2c20c"
+  },
+  "autor": "Weil, Pierre",
+  "createdAt": {
+    "$date": "2023-03-14T23:08:21.611Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:08:21.611Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410feda13e45fa501f2c224"
+  },
+  "nome": "O Caso Da Criada Perfeita E Outras Histórias",
+  "foto": "imagem",
+  "preco": 39.9,
+  "descricao": "Quando Edna, a criada de Miss Marple, pede ajuda em prol de sua prima Gladys, que também trabalha como doméstica no vilarejo, a velha senhora acha que não há muito o que fazer a respeito. Afinal, Gladys está sendo dispensada do serviço sob a acusação de ter roubado uma joia da sra. Skinner, sua patroa. Mas quando a sra. Skinner contrata uma substituta que parece ser a criada perfeita, Miss Marple fica com uma pulga atrás da orelha, pois sabe, a partir de sua vivência no pacato interior inglês, que pessoas perfeitas nunca são o que parecem... Além de O caso da criada perfeita (1942), este volume reúne outros dois contos protagonizados pela genial Miss Marple: Uma piada incomum (1941) e A extravagância de Greenshaw (1960).",
+  "categoria": {
+    "$oid": "6410fcdd13e45fa501f2c210"
+  },
+  "autor": "Christie, Agatha",
+  "createdAt": {
+    "$date": "2023-03-14T23:10:18.952Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:10:18.952Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410ff7f13e45fa501f2c228"
+  },
+  "nome": "Ponto De Impacto",
+  "foto": "imagem",
+  "preco": 59.9,
+  "descricao": "Uma verdadeira lição de como se construir uma história de suspense. Impossível parar de ler. i Washington Post.  Às vésperas da eleição presidencial norte-americana, uma incrível descoberta da NASA pode mudar todo o cenário político. A agência espacial encontra um enorme meteorito enterrado na geleira Milne, no alto Ártico, contendo fósseis uma prova irrefutável da existência de vida extraterrestre.  A extraordinária revelação é feita exatamente quando a NASA se torna uma questão central na disputa pela presidência. O candidato à reeleição, o presidente Zachary Herney, vem perdendo pontos com os ataques de seu oponente, o senador Sedgewick Sexton, à ineficiência e aos gastos excessivos da agência espacial. ",
+  "categoria": {
+    "$oid": "6410fcdd13e45fa501f2c210"
+  },
+  "autor": "Brown, Dan",
+  "createdAt": {
+    "$date": "2023-03-14T23:13:03.340Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:13:03.340Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410fffa13e45fa501f2c22c"
+  },
+  "nome": "Eu E Esse Meu Coração",
+  "foto": "imagem",
+  "preco": 41.9,
+  "descricao": "Leah MacKenzie, de 17 anos, não tem coração. O que a mantém viva é um coração artificial que ela carrega dentro de uma mochila. Com seu tipo sanguíneo raro, um transplante é como um sonho distante. Conformada, ela tenta se esquecer de que está com os dias contados, criando uma lista de coisas para fazer antes de morrer . De repente, Leah recebe uma segunda chance: há um coração disponível! O problema é quando ela descobre que o doador é um garoto da sua escola e que supostamente se matou!  Matt, o irmão gêmeo do doador, se recusa a acreditar que Eric se suicidou. Quando Leah o procura, eles descobrem que ambos têm sonhos semelhantes que podem ter pistas do que realmente aconteceu a Eric.  Enquanto tentam desvendar esse mistério, Matt e Leah se apaixonam e não querem correr o risco de perder um ao outro. Mas nem a vida nem um coração transplantado vem com garantias.  Quem diria que viver exige mais coragem do que morrer?",
+  "categoria": {
+    "$oid": "6410fce713e45fa501f2c214"
+  },
+  "autor": "Hunter, C. C.",
+  "createdAt": {
+    "$date": "2023-03-14T23:15:06.601Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:15:06.601Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6411005c13e45fa501f2c230"
+  },
+  "nome": "Torto Arado",
+  "foto": "imagem",
+  "preco": 62.9,
+  "descricao": "Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social. Vencedor do prêmio Leya 2018. Nas profundezas do sertão baiano, as irmãs Bibiana e Belonísia encontram uma velha e misteriosa faca na mala guardada sob a cama da avó. Ocorre então um acidente. E para sempre suas vidas estarão ligadas — a ponto de uma precisar ser a voz da outra. Numa trama conduzida com maestria e com uma prosa melodiosa, o romance conta uma história de vida e morte, de combate e redenção.",
+  "categoria": {
+    "$oid": "6410fce713e45fa501f2c214"
+  },
+  "autor": "Vieira Junior, Itamar",
+  "createdAt": {
+    "$date": "2023-03-14T23:16:44.156Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:16:44.156Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641100d513e45fa501f2c234"
+  },
+  "nome": "O Diário De Anne Frank",
+  "foto": "imagem",
+  "preco": 35.4,
+  "descricao": "O retrato da menina por trás do mito. A única edição brasileira autorizada pelo Anne Frank Fonds, onde parte dos direitos autorais são direcionados a UNICEF.   O depoimento da pequena Anne, morta pelos nazistas após passar anos escondida no sótão de uma casa em Amsterdã, ainda hoje emociona leitores no mundo inteiro. Suas anotações narram os sentimentos, os medos e as pequenas alegrias de uma menina judia que, como sua família, lutou em vão para sobreviver ao Holocausto.",
+  "categoria": {
+    "$oid": "6410fcfd13e45fa501f2c218"
+  },
+  "autor": "Frank, Anne",
+  "createdAt": {
+    "$date": "2023-03-14T23:18:45.869Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:18:45.869Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6411010e13e45fa501f2c238"
+  },
+  "nome": "Picasso",
+  "foto": "imagem",
+  "preco": 25.9,
+  "descricao": "Picasso (1881-1973) é tido como um grande artista plástico do século XX devido à sua capacidade de criar e ir além das fronteiras da arte. Durante quase oitenta anos de trabalho, produziu mais de 45 mil peças, entre pinturas, esculturas, desenhos, gravuras e cerâmicas, além de se aventurar no terreno do teatro e da literatura. Esta obra pretende apresentar a vida de Pablo Ruiz Picasso, o pintor envolvido com o cubismo, que teria influenciado os surrealistas e personificado as transgressões, transformações e revoluções da arte moderna.",
+  "categoria": {
+    "$oid": "6410fcfd13e45fa501f2c218"
+  },
+  "autor": "Plazy, Gilles",
+  "createdAt": {
+    "$date": "2023-03-14T23:19:42.754Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:19:42.754Z"
+  },
+  "__v": 0
+}]

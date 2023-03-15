@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "6411034913e45fa501f2c245"
+  },
+  "nome": "CUPOM DE R$5,00 DE DESCONTO",
+  "desconto": 5,
+  "createdAt": {
+    "$date": "2023-03-14T23:29:13.959Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:29:13.959Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6411036613e45fa501f2c248"
+  },
+  "nome": "CUPOM DE R$10,00 DE DESCONTO",
+  "desconto": 10,
+  "createdAt": {
+    "$date": "2023-03-14T23:29:42.478Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:29:42.478Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "6410fcc913e45fa501f2c20c"
+  },
+  "nome": "PSICOLOGIA",
+  "createdAt": {
+    "$date": "2023-03-14T23:01:29.032Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:01:29.032Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410fcdd13e45fa501f2c210"
+  },
+  "nome": "SUSPENSE",
+  "createdAt": {
+    "$date": "2023-03-14T23:01:49.489Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:01:49.489Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410fce713e45fa501f2c214"
+  },
+  "nome": "ROMANCE",
+  "createdAt": {
+    "$date": "2023-03-14T23:01:59.530Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:01:59.530Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6410fcfd13e45fa501f2c218"
+  },
+  "nome": "BIOGRAFIAS E MEMÓRIAS",
+  "createdAt": {
+    "$date": "2023-03-14T23:02:21.149Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-14T23:02:21.149Z"
+  },
+  "__v": 0
+}]
