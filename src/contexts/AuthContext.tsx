@@ -65,31 +65,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
         senha,
       })
       console.log(response.data)
-<<<<<<< HEAD
       const { id, nome } = response.data
       setCookie(undefined, '@tealbook.token', response.data, {
-=======
-      const cookie = response.data
-      setCookie(null, '@tealbook.token', cookie, {
->>>>>>> 51888d0c238485c1fd149922272df7b96803497c
         maxAge: 60 * 60, // Expirar em 1 hora
         path: "/", // Quais caminhos terão acesso ao cookie
       })
       const cookie = parseCookies()
       // Passar para as proximas requisições o nosso token
-<<<<<<< HEAD
       api.defaults.headers['Authorization'] = `Headers ${response.data}`
 
       toast.success('Logado com sucesso!')
 
       // Redirecionar o user para ultimos pedidos
-=======
-     
-      api.defaults.headers['Authorization'] = `headers ${cookie}`
-      toast.success('LOGADO COM SUCESSO!')   
-           
-          
->>>>>>> 51888d0c238485c1fd149922272df7b96803497c
     } catch (error) {
       toast.error('EMAIL OU SENHA INVÁLIDOS!!')
       console.log('ERRO AO ACESSAR', error)
