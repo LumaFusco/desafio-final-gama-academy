@@ -32,6 +32,17 @@ export const Container = styled.div`
     cursor: pointer;
 }
 
+button{
+    background: transparent;
+    margin-left 2rem;
+    border:0;
+    transition: transform 0.8s;
+
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
 @media (max-width: 768px) {
     .dropdown-menu[data-bs-popper]{
         left: -70px;

@@ -36,10 +36,12 @@ export const AuthContext = createContext({} as AuthContextData)
 
 export function loginOut() {
   try {
-    destroyCookie(undefined, '@tealbook.token')
+    destroyCookie(null, '@tealbook.token')
+    console.log("deslogado com sucesso!")
   } catch {
     console.log('erro ao deslogar')
   }
+  
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
