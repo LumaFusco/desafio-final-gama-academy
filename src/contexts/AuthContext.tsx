@@ -2,6 +2,12 @@ import { createContext, ReactNode, useState } from 'react'
 import { api } from '../Services/MainApi/config/apiClient'
 import { destroyCookie, setCookie, parseCookies } from 'nookies'
 import { toast } from 'react-toastify'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, Link as LinkRoute } from "react-router-dom";
+import { navigate } from '@reach/router';
+
+
+
 
 type AuthContextData = {
   user: UserProps | any
@@ -31,6 +37,9 @@ type SignUpProps = {
 type AuthProviderProps = {
   children: ReactNode
 }
+
+
+
 
 export const AuthContext = createContext({} as AuthContextData)
 
@@ -76,7 +85,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       console.log('ERRO AO ACESSAR', error)
     }
   }
-
+  
   async function signUp({ nome, email, senha }: SignUpProps) {
     try {
       const response = await api.post('/usuario', {

@@ -5,22 +5,55 @@ import {
   useState,
   ButtonHTMLAttributes,
 } from 'react'
-
-import { AuthContext } from '../../contexts/AuthContext'
+import { Link } from 'react-router-dom'
 import { ButtonLogin } from '../ButtonLogin'
 import * as C from '../../components/FormularioLogin/login.style'
 import { data } from 'jquery'
 import{toast} from 'react-toastify'
-import { Link, Link as LinkRoute } from "react-router-dom";
+import { api } from '../../Services/MainApi/config/apiClient'
+import { parseCookies, setCookie } from 'nookies'
+import { navigate } from '@reach/router'
 
-function Login() {
-  const { loginIn } = useContext(AuthContext)
+
+type SignInProps = {
+  email: string
+  senha: string
+}
+
+function LoginADM() {
+  
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
 
   const [loading, setLoading] = useState(false)
-
+  async function loginInAdmin({ email, senha }: SignInProps) {
+    try {
+      const response = await api.post('/login/admin', {
+        email,
+        senha,
+      })
+      console.log(response.data)
+      const { id, nome } = response.data
+      setCookie(undefined, '@tealbook.token', response.data, {
+        maxAge: 60 * 60, 
+        path: '/', 
+      })
+  
+      
+      const cookie = parseCookies()
+      // Passar para as proximas requisições o nosso token
+      api.defaults.headers['Authorization'] = `Headers ${response.data}`
+  
+      toast.success('Logado com sucesso!')
+      
+      navigate('/painel-administrativo/admin');
+      // Redirecionar o user para ultimos pedidos
+    } catch (error) {
+      toast.error('Erro ao acessar!')
+      console.log('ERRO AO ACESSAR', error)
+    }
+  }
   
   async function handleLogin(event: FormEvent) {
     event.preventDefault()
@@ -37,7 +70,10 @@ function Login() {
       senha,
     }
 
-    await loginIn(data)
+    const response = await loginInAdmin(data)
+    console.log (response)
+
+
 
     setLoading(false)
   }
@@ -47,7 +83,7 @@ function Login() {
       
       <div className="formLogin">
         <div className="headerLogin">
-          <span>FAÇA SEU LOGIN!</span>
+          <span>SOMENTE LOGIN ADM</span>
         </div>
         <form onSubmit={handleLogin}>
           <div className="inputContainer">
@@ -81,11 +117,10 @@ function Login() {
             <p>AINDA NÃO TEM UMA CONTA? </p>
             <Link to="/cadastro-usuario">CLIQUE AQUI E CADASTRE-SE</Link>
           </div>
-          <LinkRoute to='painel-administrativo'><p>Area ADM</p></LinkRoute>
         </form>
       </div>
     </C.Container>
   )
 }
 
-export default Login
+export default LoginADM

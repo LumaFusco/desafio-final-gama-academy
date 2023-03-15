@@ -19,6 +19,8 @@ import { CadastroCliente } from './pages/CadastroNovoCliente/CadastroCliente'
 import { CadastroPedido } from './pages/CadastroNovoPedido/CadastroPedido'
 import LivrosCategoria from './pages/LivrosCategoria'
 import PageCadastroUsuario from './pages/CadastroUsuario'
+import PageLoginAdmin from './pages/loginAdmin'
+import PainelAdmin from './pages/PainelAdministrativo'
 
 
 export default function Routes() {
@@ -43,7 +45,8 @@ export default function Routes() {
         <Route path="/atualizar-senha" element={<AttSenha />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/sucesso" element={<Sucesso />} />
-        <Route path="/painel-administrativo" element={<PainelAdministrativo />} />
+        <Route path="Login/painel-administrativo" element={<PageLoginAdmin />} />
+        <Route path="Login/painel-administrativo/admin" element={<PainelAdmin />} />
         <Route path="Livro/categoria/:id" element={<LivrosCategoria />} />
       </WrapperRoutes>
     </BrowserRouter>

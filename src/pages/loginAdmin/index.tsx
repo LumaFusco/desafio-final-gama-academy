@@ -1,18 +1,19 @@
 import Header from '../../components/Header'
 import Footer from '../../components/footer/Footer'
-import PainelAdm from '../../components/PainelAdm/PainelAdm'
 
- function PainelAdmin() {
+import LoginADM from '../../components/formularioLoginADM/FormLogin'
+
+ function PageLoginAdmin() {
   return (
     <div>
       <header>
         <Header />
       </header>
       <section>
-        <PainelAdm />
+        <LoginADM />
       </section>
       <Footer />
     </div>
   )
 }
-export default PainelAdmin
+export default PageLoginAdmin
