@@ -10,7 +10,11 @@ const API_BASE = axios.create({
     baseURL: "http://localhost:3333",
     headers: {
         "Content-Type": "application/json",
-        Authorization: `Headers ${cookies['@tealbook.token']}`
+<<<<<<< HEAD
+        Authorization: `${cookies['@tealbook.token']}`
+=======
+        Authorization: `headers ${cookies['@tealbook.token']}`
+>>>>>>> 51888d0c238485c1fd149922272df7b96803497c
     }
 })
 
