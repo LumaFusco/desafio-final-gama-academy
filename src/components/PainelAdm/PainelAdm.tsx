@@ -1,5 +1,5 @@
 import * as C from './paineladm.style'
-
+import { Link, Link as LinkRoute } from "react-router-dom";
 
 function PainelAdm() {
   return (
@@ -12,21 +12,21 @@ function PainelAdm() {
 
 
           <div className="buttonconfirmar">
-            <button className="button">Produtos</button>
+            <button className="button"><LinkRoute to="/gerenciamento-livros">Produtos</LinkRoute></button>
           </div>
           <div className="buttonconfirmar">
-            <button className="button2">Categorias</button>
+          <button className="button2"><LinkRoute to="/gerenciamento-categoria">Categorias</LinkRoute></button>
           </div>
           <div className="buttonconfirmar">
-            <button className="button">Clientes</button>
+          <button className="button"><LinkRoute to="/gerenciamento-cliente">Clientes</LinkRoute></button>
           </div>
           <div className="buttonconfirmar">
-            <button className="button2">Pedidos</button>
+          <button className="button2"><LinkRoute to="/gerenciamento-pedidos">Pedidos</LinkRoute></button>
           </div>
           
 
           <div className="reset">
-            <a href="#">Voltar para página inicial</a>
+          <LinkRoute to="/">Voltar para página inicial</LinkRoute>
           </div>
 
 
