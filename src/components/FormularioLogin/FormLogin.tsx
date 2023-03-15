@@ -1,34 +1,33 @@
 import {
-  ReactNode,
   FormEvent,
   useContext,
   useState,
-  ButtonHTMLAttributes,
+ 
 } from 'react'
 
 import { AuthContext } from '../../contexts/AuthContext'
 import { ButtonLogin } from '../ButtonLogin'
 import * as C from '../../components/FormularioLogin/login.style'
-import { data } from 'jquery'
 import{toast} from 'react-toastify'
 import { Link, Link as LinkRoute } from "react-router-dom";
 
 function Login() {
   const { loginIn } = useContext(AuthContext)
-  const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+  const auth = useContext(AuthContext);
 
   const [loading, setLoading] = useState(false)
 
   
   async function handleLogin(event: FormEvent) {
     event.preventDefault()
-
-    if (email === '' || senha === '') {
-      toast.error('PREENCHA TODOS OS CAMPOS!')
-      return
-    }
+    
+   
+        if(email === '' || senha === '') {
+          toast.error('PREENCHA TODOS OS CAMPOS!')
+          return
+        }
 
     setLoading(true)
 
@@ -40,8 +39,11 @@ function Login() {
     await loginIn(data)
 
     setLoading(false)
-  }
- 
+
+    }
+    
+  
+
   return (
     <C.Container>
       
