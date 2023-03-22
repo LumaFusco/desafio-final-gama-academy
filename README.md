@@ -90,7 +90,7 @@ BookHub é uma ferramenta inteligente que visa derrubar as barreiras entre os un
   </div>
   <h3 align="center"><a href="https://github.com/Caiquegam">Caíque Gama</a></h3>
   <div align="center">
-  <a href = "mailto:@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+  <a href = "mailto:caiquegamadeoliveira@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
   <a href="https://www.linkedin.com/in/ca%C3%ADque-gama-de-oliveira-55b83a173/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   </div>
 </td>
@@ -101,7 +101,7 @@ BookHub é uma ferramenta inteligente que visa derrubar as barreiras entre os un
   </div>
   <h3 align="center"><a href="https://github.com/CalebVen">Calebe Venancio</a></h3>
   <div align="center">
-  <a href = "mailto:@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+  <a href = "mailto:calebevenanciov2@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
   <a href="https://www.linkedin.com/in/calebe-venancio-a971b4231/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   </div>
 </td>
@@ -112,7 +112,7 @@ BookHub é uma ferramenta inteligente que visa derrubar as barreiras entre os un
   </div>
   <h3 align="center"><a href="https://github.com/Christhofer94">Christhofer Vieira</a></h3>
   <div align="center">
-  <a href = "mailto:@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+  <a href = "mailto:christhoferxx@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
   <a href="https://www.linkedin.com/in/christhofer-vieira-816124246/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   </div>
 </td>
