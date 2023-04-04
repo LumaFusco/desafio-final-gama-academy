@@ -2,12 +2,6 @@ import { createContext, ReactNode, useState, useContext, useEffect } from 'react
 import { api } from '../Services/MainApi/config/apiClient'
 import { destroyCookie, setCookie, parseCookies } from 'nookies'
 import { toast } from 'react-toastify'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { Link, Link as LinkRoute } from "react-router-dom";
-import { navigate } from '@reach/router';
-
-
-
 
 
 type AuthContextData = {
